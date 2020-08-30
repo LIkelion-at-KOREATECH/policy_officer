@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policy_officer 정책알리미</title>
+</head>
+<body>
+
+    <!-- 로그인 후 -->
+    <div id="viewtype">
+        <a href=" ">마이페이지</a>
+    </div>
+    <header>
+        <div id="logoname">POLICY OFFICER</div>
+        <!-- 로그인후 -->
+        <div id="username">
+            <p>안녕하세요. user 님</p>
+            <div id="logout">
+                <input type="button" id="logoutbtn" value="로그아웃"/>
+            </div>
+        </div>
+        <!-- 로그인전 -->
+        <div id="loginForm">
+            <form name="loginForm" method="POST" action="">
+                <div id="loginArea">
+                    <label for="loginID">ID</label>
+                    <div class="loginInputBox">
+                        <input type="email" id="loginID" name="ID" placeholder="아이디"/>
+                    </div>
+                </div>
+                <div id="loginPwArea">
+                    <label for="loginPw">Password</label>
+                    <div class="loginInputBox">
+                        <input type="password" name="userPw" id="loginPw" placeholder="비밀번호 8자 이상 입력" />
+                    </div>
+                </div>
+                <div class="loginSubmitBox">
+                    <input type="submit" id="loginSubmit" value="로그인"/>
+                </div>
+            </form>
+        </div>
+        <div id="recentPolicy">
+            <a href=" ">최신정책</a>
+        </div>
+        <div id="fitPolicy">
+            <a href=" ">맞춤정책</a>
+        </div>
+        <div id="SearchPolicy">
+            <a href=" ">정책검색</a>
+        </div>
+        
+            
+    </header>
+
+</body>
+</html>
