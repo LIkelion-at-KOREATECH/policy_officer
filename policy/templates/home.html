@@ -1,10 +1,78 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Policy_officer 정책알리미</title>
+    <link href="{% static /policy/css/home.css %}" rel="stylesheet" type="text/html">
+    <!-- font awesome cdn -->
+    <style>
+        #viewtype {
+            background-color: yellow;
+            float: right;
+        }
+
+        .header {
+            background-color: skyblue;
+            width: 100%;
+            margin: 0px;
+        }
+
+        #username {
+            float: right;
+        }
+
+        #policybox {
+            width: 50%;
+            margin: 0px auto;
+            display: flex;
+            padding: 0;
+
+
+        }
+
+        #recentPolicy {
+            border: 1px solid red;
+            flex: 1;
+            width: 10%;
+            box-sizing: border-box;
+            background-color: slateblue;
+
+        }
+
+        #fitPolicy {
+            border: 1px solid green;
+            flex: 1;
+            margin: 0px 5%;
+            width: 10%;
+            box-sizing: border-box;
+            background-color: slateblue;
+        }
+
+        #SearchPolicy {
+            border: 1px solid blue;
+            flex: 1;
+            width: 10%;
+            box-sizing: border-box;
+            background-color: slateblue;
+        }
+
+        .policyguide {
+            background-image: url(/policy/img/overwatch.jpg);
+            width: 100%;
+            height: 300px;
+            background-color: violet;
+            margin: 0;
+        }
+
+        .topic {
+            display: flex;
+        }
+    </style>
 </head>
+
 <body>
 
     <!-- 로그인 후 -->
@@ -12,12 +80,16 @@
         <a href=" ">마이페이지</a>
     </div>
     <header>
-        <div id="logoname">POLICY OFFICER</div>
+        <span>
+            <img src="{% static /policy/static/img/logo.png %}" alt="logoimg" />
+            <div id="logoname">POLICY OFFICER</div>
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </span>
         <!-- 로그인후 -->
         <div id="username">
-            <p>안녕하세요. user 님</p>
+            안녕하세요. user 님
             <div id="logout">
-                <input type="button" id="logoutbtn" value="로그아웃"/>
+                <input type="button" id="logoutbtn" value="로그아웃" />
             </div>
         </div>
         <!-- 로그인전 -->
@@ -26,7 +98,7 @@
                 <div id="loginArea">
                     <label for="loginID">ID</label>
                     <div class="loginInputBox">
-                        <input type="email" id="loginID" name="ID" placeholder="아이디"/>
+                        <input type="email" id="loginID" name="ID" placeholder="아이디" />
                     </div>
                 </div>
                 <div id="loginPwArea">
@@ -36,22 +108,87 @@
                     </div>
                 </div>
                 <div class="loginSubmitBox">
-                    <input type="submit" id="loginSubmit" value="로그인"/>
+                    <input type="submit" id="loginSubmit" value="로그인" />
                 </div>
             </form>
         </div>
-        <div id="recentPolicy">
-            <a href=" ">최신정책</a>
+        <div id="policybox">
+            <div id="recentPolicy">
+                <a href=" ">최신정책</a>
+            </div>
+            <div id="fitPolicy">
+                <a href=" ">맞춤정책</a>
+            </div>
+            <div id="SearchPolicy">
+                <a href=" ">정책검색</a>
+            </div>
         </div>
-        <div id="fitPolicy">
-            <a href=" ">맞춤정책</a>
-        </div>
-        <div id="SearchPolicy">
-            <a href=" ">정책검색</a>
-        </div>
-        
-            
     </header>
+    <span>
+        <main id="content">
+            <section class="policyguide" aria-labelledby="pppp">
+                <div class="mainbox">
+                    <div class="floating_box_1">
+                        <ul>
+                            <li>잘못된 부동산 정책</li>
+                            <li>어수선한 분위기</li>
+                            <li>아자아자아자</li>
+                        </ul>
+                    </div>
+                    ::after
+                </div>
+            </section>
+            <div class="container">
 
+                <section class="info" aria-labelledby="tpcs">
+                    <span>
+                        <ul class="topic">
+                            <li class="home">
+                                <a href="" class="hometax">
+                                    <span class="abouthome">Home</span>
+                                    <p>집 관련 정책</p>
+                                </a>
+                            </li>
+                            <li class="money">
+                                <a href="" class="moneytopic">
+                                    <span class="aboutmoney">자산</span>
+                                    <p>자산 관련 정책</p>
+                                </a>
+                            </li>
+                            <li class="welfare">
+                                <a href="" class="welfaretopic">
+                                    <span class="aboutwelfare">복지</span>
+                                    <p>복지 관련 정책</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </span>
+                    <span>
+                        <ul class="topic">
+                            <li class="home">
+                                <a href="" class="hometax">
+                                    <span class="abouthome">AAAAAAA</span>
+                                    <p>AAAAAAAAAAAA</p>
+                                </a>
+                            </li>
+                            <li class="money">
+                                <a href="" class="moneytopic">
+                                    <span class="aboutmoney">BBBBBBBBBBB</span>
+                                    <p>BBBBBBBBBBB</p>
+                                </a>
+                            </li>
+                            <li class="welfare">
+                                <a href="" class="welfaretopic">
+                                    <span class="aboutwelfare">CCCCC</span>
+                                    <p>CCCCCCCCCC</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </span>
+
+                </section>
+            </div>
+        </main>
 </body>
+
 </html>
