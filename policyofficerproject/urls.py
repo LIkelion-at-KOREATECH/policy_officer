@@ -21,5 +21,6 @@ from policy import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name= "home"),
-    path('suit/', views.suit, name= "suit")
+    path('suit/', views.suit, name= "suit"),
+    path('view/', views.view, name= "view"),
 ]

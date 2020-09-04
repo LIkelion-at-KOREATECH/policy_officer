@@ -6,3 +6,6 @@ def home(request):
     
 def suit(request):
     return render (request, 'suit.html')
+
+def view(request):
+    return render (request, 'view.html')

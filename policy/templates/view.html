@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+  <style>
+
+    .logo {
+      display: inline-block;
+      border: 1px solid skyblue; 
+      width: 100px; 
+      height: 80px; 
+      line-height: 80px; 
+      font-size: 50px; 
+      text-align: center; 
+    }
+
+    header {
+      height: 120px;
+      padding: 30px;
+    }
+
+    nav {
+      height: 50px;
+      line-height: 50px;
+      align-items: center;
+      border-bottom: 1px solid black;
+    }
+
+    aside {
+      float: left;
+      width: 15em;
+      height: 500px;
+      margin: 30px;
+      background-color: grey;
+    }
+
+    .aside_ul {
+      list-style: none;
+    }
+
+    section {
+      float: left;
+      height: 500px;
+      margin: 30px;
+
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    li {
+      display: inline;
+      line-height: 50px;
+    }
+  </style>
+
+
+  <title>PolicyOfficer - 정책 보기</title>
+
+</head>
+
+<body>
+
+  <!-- 헤더 -->
+
+  <header>
+
+    <div class="logo">
+      PO
+    </div>
+
+    <input type="search" name="search" placeholder="원하는 정책을 검색하세요!" 
+      style=" width:250px; height:40px; font-size: 10px;" />
+
+    <h>인기 검색어</h>
+
+    <button type="button" style="float: right; margin-left: 10px;">LOGIN</button>
+    <button type="button" style="float: right; margin-left: 10px;">REGISTER</button>
+
+    <hr noshade />
+
+  </header>
+
+
+  <!-- 커서 닿으면 색 바뀌기 수정 -->
+
+  <nav>
+
+    <ul>
+      <li><a href="#">정책 보기</a></li>
+      <li><a href="#">맞춤 정책</a></li>
+    </ul>
+
+
+  </nav>
+
+
+  <aside>
+    <div style="font-size: 30px; text-align: center;">정책 검색</div>
+    <br>
+
+    <div style="padding-left: 30px;">
+      <input type="checkbox" /> 코로나 19
+      <br>
+      <input type="checkbox" /> 보건
+      <br>
+      <input type="checkbox" /> 교육
+      <br><br><br>
+      <input type="submit"/>
+    </div>
+
+  </aside>
+
+  <!-- 본문 카드 형식 (부트스트랩) -->
+  <section>
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col-6">
+          <p style="margin:20px 0px;"></p>
+          <div class="card">
+
+            <div style="border: 3px solid; width: auto; height: 300px; text-align: center; line-height: 300px;">정책 사진
+            </div>
+            <img src="images/card-image.png" alt="" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">정책 제목</h5>
+              <p class="card-text" style="margin:20px 0px;">정책 관련 글이 나올 부분입니다.</p>
+              <a href="#" class="btn btn-primary">알아보기</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <p style="margin:20px 0px;"></p>
+          <div class="card">
+
+            <div style="border: 3px solid; width: auto; height: 300px; text-align: center; line-height: 300px;">정책 사진
+            </div>
+            <img src="images/card-image.png" alt="" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">정책 제목</h5>
+              <p class="card-text" style="margin:20px 0px;">정책 관련 글이 나올 부분입니다.</p>
+              <a href="#" class="btn btn-primary">알아보기</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <p style="margin:20px 0px;"></p>
+          <div class="card">
+
+            <div style="border: 3px solid; width: auto; height: 300px; text-align: center; line-height: 300px;">정책 사진
+            </div>
+            <img src="images/card-image.png" alt="" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">정책 제목</h5>
+              <p class="card-text" style="margin:20px 0px;">정책 관련 글이 나올 부분입니다.</p>
+              <a href="#" class="btn btn-primary">알아보기</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <p style="margin:20px 0px;"></p>
+          <div class="card">
+
+            <div style="border: 3px solid; width: auto; height: 300px; text-align: center; line-height: 300px;">정책 사진
+            </div>
+            <img src="images/card-image.png" alt="" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">정책 제목</h5>
+              <p class="card-text" style="margin:20px 0px;">정책 관련 글이 나올 부분입니다.</p>
+              <a href="#" class="btn btn-primary">알아보기</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+  </section>
+
+</body>
+
+</html>
