@@ -1,0 +1,12 @@
+#header {
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align : center;
+    padding: 106px 150px 150px;
+}
+.blind{
+  color : black;
+  text-decoration: none;
+}

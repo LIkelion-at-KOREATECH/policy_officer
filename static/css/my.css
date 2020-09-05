@@ -1,0 +1,65 @@
+.blind{
+    color : black;
+    text-decoration: none;
+  }
+  .fform{
+    font-size: 30px;
+    border : 2px;
+    color : blue;
+    text-align: center;
+    align-items: center;
+    margin : 10px;
+    }
+  .ffform{
+    font-size: 15px;
+    font-style: normal;
+    border: 1px;
+  
+  }
+  #side{
+    position: absolute;
+    display: inline-block;
+    box-sizing: 70px 300px;
+    left: 10px;
+    top: 100px;
+    padding : 5%;
+    align-content : center;
+    border-radius: 15px;
+    font-size: 25px;
+  }
+  #bigform{
+    position: absolute;
+    display: inline-block;
+    background-color: white;
+      border: 5px solid blue;
+    left : 400px;
+    padding : 5%;
+      margin: 100px;
+    align-content : center;
+    border-radius: 15px;
+    
+  }
+  #body_1{
+    border: 1px;
+    color: black;
+  
+  }
+  #mind{
+    position: absolute;
+    background-color: white;
+      border: 5px solid blue;
+    margin: 100px 400px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+  
+    text-align: center;
+  }
+  table{
+    width: 800px;
+    height: 900px;
+  }
+  table, td{
+    border: 1px solid black;
+  }
+  

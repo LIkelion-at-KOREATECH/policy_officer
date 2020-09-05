@@ -9,3 +9,16 @@ def suit(request):
 
 def view(request):
     return render (request, 'view.html')
+
+def login(request):
+    return render (request, 'login.html')
+
+    
+def mind(request):
+    return render (request, 'mind.html')
+    
+def mypage(request):
+    return render (request, 'mypage.html')
+    
+def signup(request):
+    return render (request, 'signup.html')
