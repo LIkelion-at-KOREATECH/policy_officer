@@ -9,15 +9,28 @@
     <title>Policy_officer 정책알리미</title>
     <!-- font awesome cdn -->
     <style>
-        #viewtype {
-            background-color: yellow;
-            float: right;
-        }
+     
 
         header {
             background-color: skyblue;
             width: 100%;
             margin: 0px;
+            height: 150px;
+        }
+
+        .signin{
+            color:white;
+            border-color:blueviolet;
+            
+            font-weight: 400;
+            text-align: center;
+            vertical-align: middle;
+            padding:.375rem .75rem;
+            font-size: 1rem;
+            margin:0;
+            background-color: blueviolet;
+            float: right;
+
         }
 
         #username {
@@ -27,40 +40,15 @@
         #policybox {
             width: 50%;
             margin: 0px auto;
-            display: flex;
             padding: 0;
 
 
         }
 
-        #recentPolicy {
-            border: 1px solid red;
-            flex: 1;
-            width: 10%;
-            box-sizing: border-box;
-            background-color: slateblue;
-
-        }
-
-        #fitPolicy {
-            border: 1px solid green;
-            flex: 1;
-            margin: 0px 5%;
-            width: 10%;
-            box-sizing: border-box;
-            background-color: slateblue;
-        }
-
-        #SearchPolicy {
-            border: 1px solid blue;
-            flex: 1;
-            width: 10%;
-            box-sizing: border-box;
-            background-color: slateblue;
-        }
+      
 
         .policyguide {
-            background-image: url(../static/img/overwatch.jpg);
+            /* background-image: url(../static/img/overwatch.jpg); */
             width: 100%;
             height: 300px;
             background-color: violet;
@@ -70,29 +58,40 @@
         #topic {
             display: flex;
         }
+
+       
     </style>
 </head>
 
 <body>
 
     <!-- 로그인 후 -->
-    <div id="viewtype">
+    <!-- <div id="viewtype">
         <a href=" ">마이페이지</a>
-    </div>
+    </div> -->
     <header>
+
         <span>
             <img src="{% static 'img/logo.png' %}" width = 50px alt="logoimg">
-            <div id="logoname">POLICY OFFICER</div>
-            <i class="fa fa-search" aria-hidden="true"></i>
         </span>
-        <!-- 로그인후 -->
+        <span>
+            <div id="logoname">POLICY OFFICER</div>
+         
+        </span>
+        <span></span>
+            <button class="signin" type="button">
+                <a href="{% url 'login' %}">SIGN IN</a>
+           </button>
+        
+        </span> 
+        <!-- 로그인후
         <div id="username">
             안녕하세요. user 님
             <div id="logout">
                 <input type="button" id="logoutbtn" value="로그아웃" />
             </div>
         </div>
-        <!-- 로그인전 -->
+        
         <div id="loginForm">
             <form name="loginForm" method="POST" action="">
                 <div id="loginArea">
@@ -110,18 +109,26 @@
                 <div class="loginSubmitBox">
                     <input type="submit" id="loginSubmit" value="로그인" />
                 </div>
-            </form>
-        </div>
+            </form> -->
+
+        <!-- </div> -->
         <div id="policybox">
-            <div id="recentPolicy">
+            
+            <button type="button">
                 <a href="{% url 'view' %}">정책 보기</a>
-            </div>
-            <div id="fitPolicy">
-                <a href="{% url 'suit' %}">맞춤 정책</a>
-            </div>
-            <div id="SearchPolicy">
+            </button>    
+            
+            
+            <button type="button">
+                 <a href="{% url 'suit' %}">맞춤 정책</a>
+            </button>
+                
+        
+            <button type="button">
                 <a href=" ">정책 검색</a>
-            </div>
+            </button>
+
+            
         </div>
     </header>
     <span>
