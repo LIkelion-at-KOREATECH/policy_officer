@@ -190,54 +190,25 @@
         <aside class="aside">
             <span>
             <div class="content">
-                <div class="sub picture">
-                    사진
-                </div>
-                <div class="sub subject">
-                    제목
-                </div>
-                <div class="sub summary">
-                    요약 내용
-                </div>
-                <div class="sub company">
-                    회사
-                </div>
+              <legend>EDUCATION</legend>
+              <br><br>
+              <label for="school">학교</label>
+              <input type="text" name="school" placeholder="학교이름을 입력해주세요">
+              <br><br>
+              <label for="grade">학년</label>
+              <input type="text" name="glade" placeholder="학년을 입력해주세요">
+              <br><br>
+              <label for="grade">생년월일</label>
+              <input type="text" name="birth" placeholder="생년월일을 입력해주세요">
+              <br><br>
+              신청가능기간 : ~2020. 9. 15까지
+              <br><br>
+              <a href = "https://www.kosaf.go.kr/" target="blank">
+                신청 사이트 주소 바로가기
+              </a>
+              <button type="submit">확인</button>
             </div>
             </span>
-            <span>
-            <div class="content">
-                <div class="sub picture">
-                    사진
-                </div>
-                <div class="sub subject">
-                    제목
-                </div>
-                <div class="sub summary">
-                    요약 내용
-                </div>
-                <div class="sub company">
-                    회사
-                </div>
-            </div>
-            </span>
-            <span>
-                <div class="content">
-                    <div class="sub picture">
-                        <a href="{% url 'edu' %}">
-                            <img src="{% static 'img/edu.PNG' %}" width = 300px alt="eduimg">
-                        </a>
-                    </div>
-                    <div class="sub subject">
-                        국가장학금
-                    </div>
-                    <div class="sub summary">
-                        국가 장학금 신청 9월 15일까지
-                    </div>
-                    <div class="sub company">
-                        교육부 2020.03.11
-                    </div>
-                </div>
-                </span>
             
         </aside>
     </div>

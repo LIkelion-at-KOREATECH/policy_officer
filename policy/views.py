@@ -22,3 +22,6 @@ def mypage(request):
     
 def signup(request):
     return render (request, 'signup.html')
+
+def edu(request):
+    return render (request, 'edu.html')
