@@ -25,3 +25,4 @@ def signup(request):
 
 def edu(request):
     return render (request, 'edu.html')
+

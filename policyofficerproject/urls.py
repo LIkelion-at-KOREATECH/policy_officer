@@ -27,5 +27,5 @@ urlpatterns = [
     path('mind/', views.mind, name= "mind"),
     path('mypage/', views.mypage, name= "mypage"),
     path('signup/', views.signup, name= "signup"),
-    path('edu/', views.edu, name= "edu")
+    path('edu/', views.edu, name= "edu"),
 ]
