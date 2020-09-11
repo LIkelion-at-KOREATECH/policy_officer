@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -9,7 +10,15 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
   <style>
-
+    @font-face {
+      font-family: kyeonggi;
+      src: url({%static 'fonts/경기천년제목V_Bold.ttf' %}); 
+    }
+    @font-face {
+      font-family: kbiz;
+      src: url({%static 'fonts/kbiz.ttf' %});
+    }
+    body, div, span, section, header, aside, footer, ul, ol, h1, h2, h3, h4, h5, form, input, p, b, em, button{margin:0; padding:0; font-family: kbiz;}
     .logo {
       display: inline-block;
       border: 1px solid skyblue; 
@@ -31,7 +40,11 @@
       align-items: center;
       border-bottom: 1px solid black;
     }
-
+    section, div {
+      float: left;
+      font-family: kbiz;
+    }
+    
     aside {
       float: left;
       width: 15em;
@@ -39,161 +52,320 @@
       margin: 30px;
       background-color: grey;
     }
-
-    .aside_ul {
-      list-style: none;
+    /* 필터부분 */
+    .filter{
+      background-color: white;
+      box-sizing: border-box;
+      border-radius: 20px 20px 20px 20px;
+      box-shadow: 1px 3px 6px rgba(0,0,0,.25);
+      border: solid rgba(241, 223, 223,.100) 1px;
+      width: 334px;
+      height: 961px;
     }
-
-    section {
-      float: left;
-      height: 500px;
-      margin: 30px;
-
+    /* 필터글자 */
+    .filter-title{
+      float: none;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 22px;
     }
+   
+    .filter-term{
 
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
+      float: none;
+      display: block;
+      border-bottom: 2px solid rgb(220, 211, 211);
+      text-decoration: none;
+      margin-right: 30px; 
+      color: rgb(112, 112, 112);
+      font-size: 18px;
+    }
+    .date{
+      float: none;
+    }
+    input{
+      float: none;
       text-align: center;
     }
-
-    li {
-      display: inline;
-      line-height: 50px;
+    .filter-date{
+      float: none;
+      display:inline-flex;
+      box-sizing: border-box;
+      border-radius: 10px;
+      box-shadow: 1px 3px 6px rgba(0,0,0,.25);
+      border: solid rgba(255, 255, 255,.100) 1px;
+      
     }
+    .category{
+      text-align: center;
+    }
+    .category1, .category2{
+      
+      float: none;
+      display: block;
+      margin: 0px auto;
+    }
+    .education, .welfare, .labor, .tax, .land{
+      box-sizing: border-box;
+      border-radius: 10px;
+      box-shadow: 1px 3px 6px rgba(0,0,0,.25);
+      border: solid rgba(255, 255, 255,.100) 1px;
+      padding: 15px 20px 0px 20px;
+      margin: 10px;
+    }
+
+    
+
+    .categoryfont{
+      float: none; 
+      text-align: center;
+      font-size: 18px;
+      color: rgb(112, 112, 112);
+      
+    }
+     /* 카드 css */
+    
+    /* 카드 크기 및 설정 */
+    .big-title{
+      float:none;
+      display: block;
+      margin: 20px 200px 0px 405px;
+      border-bottom: 4px solid rgb(159, 106, 12);
+      font-size: 22px;
+      font-family: kyeonggi;
+    }
+    .card{
+      width: 322px;
+      height: 380px;
+      box-sizing: border-box;
+      
+      border-radius: 20px 20px 20px 20px;
+      box-shadow: 1px 3px 6px rgba(0,0,0,.25);
+      border: solid rgba(255, 255, 255,.100) 1px;
+    }
+    /* 더알아보기 */
+    .btnbtn-primary{
+      width: 69px;
+      height: 19px;
+      box-sizing: border-box;
+      border: rgb(59, 169, 251);
+      background-color: rgb(59, 169, 251);
+      border-radius: 10px;
+      color: white;
+      font-size: 10px;
+      padding: 3px 5px 3px 5px;
+    }
+    /* new or updated 카드 왼쪽 위 */
+    .status-icon{
+      margin-left: 20px;
+      float:left;
+      color: red;
+      font-size: 18px;
+    } 
+    .card-body{
+      float: none;
+     
+    }
+    .card-title{
+     
+      display: block;
+      text-align: center;
+      font-size: 18px;
+      
+    }
+    .card-term{
+      float: right;
+      vertical-align: bottom;
+      font-size: 13px;
+    }
+
+    .main-picture{
+      
+      height: 266px;
+      
+    }
+    .col-6{
+      float: none;
+      display: inline-block;
+    }
+    
+/* 카드 css 끝 */
   </style>
 
 
   <title>PolicyOfficer - 정책 보기</title>
 
-</head>
+
 
 <body>
 
   <!-- 헤더 -->
 
-  <header>
-
-    <div class="logo">
-      PO
-    </div>
-
-    <input type="search" name="search" placeholder="원하는 정책을 검색하세요!" 
-      style=" width:250px; height:40px; font-size: 10px;" />
-
-    <h>인기 검색어</h>
-
-    <button type="button" style="float: right; margin-left: 10px;">LOGIN</button>
-    <button type="button" style="float: right; margin-left: 10px;">REGISTER</button>
-
-    <hr noshade />
-
-  </header>
+ 
 
 
   <!-- 커서 닿으면 색 바뀌기 수정 -->
 
-  <nav>
 
-    <ul>
-      <li><a href="#">정책 보기</a></li>
-      <li><a href="#">맞춤 정책</a></li>
-    </ul>
-
-
-  </nav>
-
-
-  <aside>
-    <div style="font-size: 30px; text-align: center;">정책 검색</div>
+  <aside class="filter">
+    <div class="filter-title">FILTER</div>
     <br>
 
     <div style="padding-left: 30px;">
-      <input type="checkbox" /> 코로나 19
+      
+      <div class="filter-term">기간</div>
       <br>
-      <input type="checkbox" /> 보건
+      <div class="filter-box">
+        <input type="checkbox" />하 루
+          
+        <input type="checkbox" />한 달
+          
+        <input type="checkbox" />일 년
+        </div>
+      <div class="filter-date">
+        <div class="date">직접입력</div>
+        <div class="startdate">시작일
+          <form>
+            <p><input type="date" value="2020-09-22" ></p>
+            <p><input class="box" type="submit" value="SEARCH"></p>
+          </form>
+        </div>
+      </div>
+      <br></br>
+      <div class="filter-term">카테고리
+      </div>
       <br>
-      <input type="checkbox" /> 교육
-      <br><br><br>
-      <input type="submit"/>
+      <div class="category">
+        <div class="category1">
+          <div class="education">
+            <a href="#">
+              <img src="{% static 'img/mortarboard.png' %}" width=63px; height=63px; alt="education">
+            <a>
+            <div class="categoryfont">교육</div>
+          </div>
+          <div class="welfare">
+            <a href="#">
+              <img src="{% static 'img/help.png' %}" width=63px; height=63px; alt="welfare">
+            <a>
+            <div class="categoryfont">복지</div>
+          </div>
+        </div>
+        <div class="category2">
+          <div class="tax" style="text-align: center;">
+            <div class="image">
+              <a href="#">
+                <img src="{% static 'img/tax.png' %}" width=63px; height=63px; alt="tax">
+              <a>
+              <div class="categoryfont">세금</div>
+            </div>
+          </div>
+          <div class="labor">
+            <a href="#">
+              <img src="{% static 'img/labor.png' %}" width=63px; height=63px; alt="labor">
+            <a>
+            <div class="categoryfont">노동</div>
+          </div>
+        </div>
+          <div class="land">
+            <a href="#">
+              <img src="{% static 'img/land.png' %}" width=63px; height=63px; alt="land">
+            <a>
+            <div class="categoryfont">부동산</div>
+          </div>
+      </div>
+
     </div>
+    
 
   </aside>
 
   <!-- 본문 카드 형식 (부트스트랩) -->
+  <div class="big-title">
+    WELFARE&EDUCATION
+  </div>
+ 
   <section>
-
+<!-- 카드 일렬로 정리하는게 안됨 ㅜㅜ -->
     <div class="container">
       <div class="row">
-
+        <!-- 카드  -->
         <div class="col-6">
-          <p style="margin:20px 0px;"></p>
+          <p style="margin:30px 10px;"></p>
           <div class="card">
-
-            <div style="border: 3px solid; width: auto; height: 300px; text-align: center; line-height: 300px;">정책 사진
+            <div class="card-condition">
+              <!-- 카드 상태 -->
+              <div class="status-icon">NEW</div>
+              <!-- 더알아보기 버튼 -->
+              <div class="card-detail" style="float:right; margin-right:30px">
+                <a href="https://blog.naver.com/sun014371/222084686876" class="btnbtn-primary"> 더알아보기 </a>
+              </div>
             </div>
-            <img src="images/card-image.png" alt="" class="card-img-top" />
+
+            <div class="main-picture" style="text-align: center;">
+              <a href="https://blog.naver.com/sun014371/222084686876">
+	              <img src="{% static 'img/edusupport.png' %}" width=320px; height=266px; alt="위의 이미지를 누르면 연결됩니다.">
+              <a>
+            </div>
             <div class="card-body">
-              <h5 class="card-title">정책 제목</h5>
-              <p class="card-text" style="margin:20px 0px;">정책 관련 글이 나올 부분입니다.</p>
-              <a href="#" class="btn btn-primary">알아보기</a>
+              <h5 class="card-title">교육재난지원금 및 혜택</h5>
+              <p class="card-term">2020.09.10~</p>
+              
             </div>
           </div>
         </div>
-
         <div class="col-6">
-          <p style="margin:20px 0px;"></p>
+          <p style="margin:30px 10px;"></p>
           <div class="card">
-
-            <div style="border: 3px solid; width: auto; height: 300px; text-align: center; line-height: 300px;">정책 사진
+            <div class="card-condition">
+              <!-- 카드 상태 -->
+              <div class="status-icon" style="color:rgb(59, 163, 251)">UPDATE</div>
+              <!-- 더알아보기 버튼 -->
+              <div class="card-detail" style="float:right; margin-right:30px">
+                <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=29392274&memberNo=1676241&vType=VERTICAL" class="btnbtn-primary"> 더알아보기 </a>
+              </div>
             </div>
-            <img src="images/card-image.png" alt="" class="card-img-top" />
+
+            <div class="main-picture" style="text-align: center;">
+              <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=29392274&memberNo=1676241&vType=VERTICAL">
+	              <img src="{% static 'img/view_education.png' %}" width=320px; height=266px; alt="위의 이미지를 누르면 연결됩니다.">
+              <a>
+            </div>
             <div class="card-body">
-              <h5 class="card-title">정책 제목</h5>
-              <p class="card-text" style="margin:20px 0px;">정책 관련 글이 나올 부분입니다.</p>
-              <a href="#" class="btn btn-primary">알아보기</a>
+              <h5 class="card-title">제2차 국가재난지원금</h5>
+              <p class="card-term">2020.09.10~</p>
+              
             </div>
           </div>
         </div>
-
         <div class="col-6">
-          <p style="margin:20px 0px;"></p>
+          <p style="margin:30px 10px;"></p>
           <div class="card">
-
-            <div style="border: 3px solid; width: auto; height: 300px; text-align: center; line-height: 300px;">정책 사진
+            <div class="card-condition">
+              <!-- 카드 상태 -->
+              <div class="status-icon"></div>
+              <!-- 더알아보기 버튼 -->
+              <div class="card-detail" style="float:right; margin-right:30px; margin-bottom: 3px;">
+                <a href="http://news.kmib.co.kr/article/view.asp?arcid=0015000612&code=61141111&cp=nv" class="btnbtn-primary"> 더알아보기 </a>
+              </div>
             </div>
-            <img src="images/card-image.png" alt="" class="card-img-top" />
+
+            <div class="main-picture">
+              <a href="http://news.kmib.co.kr/article/view.asp?arcid=0015000612&code=61141111&cp=nv">
+	              <img src="{% static 'img/landmoney.png' %}" width=321px; height=266px; alt="위의 이미지를 누르면 연결됩니다.">
+              <a>
+            </div>
             <div class="card-body">
-              <h5 class="card-title">정책 제목</h5>
-              <p class="card-text" style="margin:20px 0px;">정책 관련 글이 나올 부분입니다.</p>
-              <a href="#" class="btn btn-primary">알아보기</a>
+              <h5 class="card-title">부동산 정책</h5>
+              <p class="card-term">~2020.09.30</p>
+              
             </div>
           </div>
         </div>
-
-        <div class="col-6">
-          <p style="margin:20px 0px;"></p>
-          <div class="card">
-
-            <div style="border: 3px solid; width: auto; height: 300px; text-align: center; line-height: 300px;">정책 사진
-            </div>
-            <img src="images/card-image.png" alt="" class="card-img-top" />
-            <div class="card-body">
-              <h5 class="card-title">정책 제목</h5>
-              <p class="card-text" style="margin:20px 0px;">정책 관련 글이 나올 부분입니다.</p>
-              <a href="#" class="btn btn-primary">알아보기</a>
-            </div>
-          </div>
-        </div>
-
       </div>
-    </div>
+    </div>  
+        
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
+    
   </section>
 
 </body>
