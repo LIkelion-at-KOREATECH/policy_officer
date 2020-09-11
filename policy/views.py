@@ -13,8 +13,8 @@ def view(request):
     policies = Policies.objects.all() 
     return render(request, 'view.html', {'policies' : policies})
     
-# def view(request):
-#     return render (request, 'view.html')
+def view(request):
+     return render (request, 'view.html')
 
 def login(request):
     return render (request, 'login.html')
