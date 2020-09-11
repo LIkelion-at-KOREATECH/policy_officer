@@ -1,4 +1,8 @@
 {% load static %}
+<<<<<<< HEAD
+=======
+
+>>>>>>> f6aee50dacabe19d0921a793067f3c4d68e45bd9
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -10,6 +14,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
   <style>
+<<<<<<< HEAD
     @font-face {
       font-family: kyeonggi;
       src: url({%static 'fonts/경기천년제목V_Bold.ttf' %}); 
@@ -19,14 +24,16 @@
       src: url({%static 'fonts/kbiz.ttf' %});
     }
     body, div, span, section, header, aside, footer, ul, ol, h1, h2, h3, h4, h5, form, input, p, b, em, button{margin:0; padding:0; font-family: kbiz;}
+=======
+>>>>>>> f6aee50dacabe19d0921a793067f3c4d68e45bd9
     .logo {
       display: inline-block;
-      border: 1px solid skyblue; 
-      width: 100px; 
-      height: 80px; 
-      line-height: 80px; 
-      font-size: 50px; 
-      text-align: center; 
+      border: 1px solid skyblue;
+      width: 100px;
+      height: 80px;
+      line-height: 80px;
+      font-size: 50px;
+      text-align: center;
     }
 
     header {
@@ -201,7 +208,31 @@
 
   <!-- 헤더 -->
 
+<<<<<<< HEAD
  
+=======
+  <header>
+
+    <div class="logo">
+      PO
+    </div>
+
+    <form action="{% url 'search' %}" method="post">
+      {% csrf_token %}
+    <input type="search" name="q" value="{{q}}" placeholder="원하는 정책을 검색하세요!"
+      style=" width:250px; height:40px; font-size: 10px;" />
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+    <h>인기 검색어</h>
+
+    <button type="button" style="float: right; margin-left: 10px;">LOGIN</button>
+    <button type="button" style="float: right; margin-left: 10px;">REGISTER</button>
+
+    <hr noshade />
+
+  </header>
+>>>>>>> f6aee50dacabe19d0921a793067f3c4d68e45bd9
 
 
   <!-- 커서 닿으면 색 바뀌기 수정 -->
@@ -235,6 +266,7 @@
       <div class="filter-term">카테고리
       </div>
       <br>
+<<<<<<< HEAD
       <div class="category">
         <div class="category1">
           <div class="education">
@@ -274,6 +306,11 @@
           </div>
       </div>
 
+=======
+      <input type="checkbox" /> 교육
+      <br><br><br>
+      <input type="submit" />
+>>>>>>> f6aee50dacabe19d0921a793067f3c4d68e45bd9
     </div>
     
 
@@ -288,6 +325,7 @@
 <!-- 카드 일렬로 정리하는게 안됨 ㅜㅜ -->
     <div class="container">
       <div class="row">
+<<<<<<< HEAD
         <!-- 카드  -->
         <div class="col-6">
           <p style="margin:30px 10px;"></p>
@@ -337,6 +375,46 @@
             </div>
           </div>
         </div>
+=======
+
+
+        <div class="album py-5 bg-light">
+          <div class="container">
+            <div class="card-columns">
+              {% for policy in policies %}
+              <div class="card mb-4 shadow-sm">
+                <!-- image -->
+                {% if policy.image %}
+                <img src="{{ policy.image.url }}" class="card-img-top" alt="Policy_Image">
+                {% else %}
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
+                  xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                  aria-label="Placeholder: Thumbnail">
+                  <title>Dreamary</title>
+                  <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
+                    dy=".3em">Profile</text>
+                </svg>
+                {% endif %}
+                <div class="card-body">
+                  <h4 class="card-title">{{ policy.name }}</h4>
+                  <h6 class="card-text">{{ policy.address }}</h6>
+                  <hr>
+                  <div class="d-flex justify-content-between align-itema-center">
+                    <div class="btn-group">
+                      <a href="{% url 'detail' policy.id %}" class="btn btn-sm btn-outline-secondary">자세히
+                        알아보기</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+
+
+>>>>>>> f6aee50dacabe19d0921a793067f3c4d68e45bd9
         <div class="col-6">
           <p style="margin:30px 10px;"></p>
           <div class="card">
@@ -355,9 +433,15 @@
               <a>
             </div>
             <div class="card-body">
+<<<<<<< HEAD
               <h5 class="card-title">부동산 정책</h5>
               <p class="card-term">~2020.09.30</p>
               
+=======
+              <h5 class="card-title">정책 제목</h5>
+              <p class="card-text" style="margin:20px 0px;">정책 관련 글이 나올 부분입니다.</p>
+              <a href="{% url 'customize' %}" class="btn btn-primary">알아보기</a>
+>>>>>>> f6aee50dacabe19d0921a793067f3c4d68e45bd9
             </div>
           </div>
         </div>

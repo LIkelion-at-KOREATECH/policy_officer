@@ -9,7 +9,8 @@
     <title>Policy_officer 정책알리미</title>
     <!-- font awesome cdn -->
     <style>
-    @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+        @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+
         header {
             width: 100%;
             margin: 30px 0px 0px 0px;
@@ -99,7 +100,8 @@
             outline: none;
             color: white;
             position: absolute;
-            top: 120px; right: 233px;
+            top: 120px;
+            right: 233px;
             padding: 5px;
         }
 
@@ -165,10 +167,12 @@
             margin: 0 auto;
             margin-bottom: 50px;
         }
-        .pto{
+
+        .pto {
             margin: 20px 10px 10px 570px;
         }
-        .crn{
+
+        .crn {
             width: 450px;
             height: 120px;
             background-color: rgb(38, 153, 251);
@@ -176,65 +180,80 @@
             margin-left: 550px;
             border-radius: 20px;
         }
+
         .box3 {
             position: absolute;
-            top: 735px; left: 805px;
+            top: 735px;
+            left: 805px;
             width: 400px;
             height: 2.5px;
-            background-color:white;
+            background-color: white;
         }
+
         .box4 {
             position: absolute;
-            top: 830px; left: 805px;
+            top: 830px;
+            left: 805px;
             width: 400px;
             height: 2.5px;
-            background-color:white;
+            background-color: white;
         }
+
         .crnh {
             color: white;
             font-family: 'Jeju Gothic', sans-serif;
             font-size: 14pt;
-            padding : 23px 0px 0px 27px;
+            padding: 23px 0px 0px 27px;
         }
-        .crnin{
+
+        .crnin {
             color: white;
             font-family: 'Jeju Gothic', sans-serif;
             font-size: 9pt;
-            padding : 0px 0px 0px 30px;
+            padding: 0px 0px 0px 30px;
             opacity: 0.7;
             line-height: 150%;
         }
-        footer{
+
+        footer {
             background-color: rgb(226, 226, 226);
             height: 60px;
             margin-top: 70px;
             margin-bottom: 50px;
         }
-        p{
+
+        p {
             color: white;
             font-family: 'Jeju Gothic', sans-serif;
             text-align: center;
             padding: 20px 20px 20px 20px;
         }
-        .box5{
+
+        .box5 {
             width: 2.5px;
             height: 35px;
-            background-color:white;
+            background-color: white;
             margin: 2px 70px 2px 70px;
             opacity: 0.7;
         }
-
     </style>
 </head>
+
+
+
 
 <body>
     <header class="header imageback">
         <a href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" width=50px alt="logo" class="left"></a>
         <h1 class="display-4"><span class="orange">Policy</span> <span class="blue">Officer</span></h1>
-        <span class="right search">
-            <input type="text" placeholder="검색어 입력">
-            <button class="button1">검색</button>
-        </span>
+        <form action="{% url 'search' %}" method="post">
+            {% csrf_token %}
+            <span class="right search">
+                <input type="search" name="q" value="{{q}}" placeholder="검색어 입력">
+                <button class="button1">검색</button>
+            </span>
+        </form>
+
     </header>
     <nav>
         <ul class="nav justify-content-center navi">
@@ -246,9 +265,9 @@
             <li class="nav-item">
                 <a class="nav-link white" href="{% url 'suit' %}">맞춤정책</a>
             </li>
-           
+
             <span class="box5"></span>
-             
+
             <a href="{% url 'login' %}"><button class="button2">로그인</button></a>
         </ul>
     </nav>
@@ -302,32 +321,35 @@
         <div class="intro">
             &emsp;교육부에서 진행하는 2020학년도 제 2학기 2차 국가장학금<br><br>
             <img src="{% static 'img/clock.png' %}" width=20px alt="clock" class="left3">
-            September.10 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            September.10
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
             <a href="{% url 'edu' %}">자세히 알아보기</span></a>
         </div>
         <div class=box2> </div>
     </div>
     <div>
-    <div class="pto">
-        <img src="{% static 'img/education.png' %}" width=100px alt="education">
-        <img src="{% static 'img/welfare.png' %}" width=100px alt="welfare">
-        <img src="{% static 'img/work.png' %}" width=100px alt="work">
-        <img src="{% static 'img/home.png' %}" width=100px alt="home">
-    </div>
-    <div class="crn">
-        <div class="box3"></div>
-        <div>
-        <div class="crnh">코로나 안전수칙 안내</div>
-        <di class="crnin">
-        1. 외부에서 반드시 마스크 착용하기 &emsp; 2. 손톱까지 깨끗이 손닦기<br>
-        &emsp;&emsp;&nbsp;&nbsp;3. 감염이 의심될 때는 보건소나 1339로 연락하기</div>
+        <div class="pto">
+            <img src="{% static 'img/education.png' %}" width=100px alt="education">
+            <img src="{% static 'img/welfare.png' %}" width=100px alt="welfare">
+            <img src="{% static 'img/work.png' %}" width=100px alt="work">
+            <img src="{% static 'img/home.png' %}" width=100px alt="home">
+        </div>
+        <div class="crn">
+            <div class="box3"></div>
+            <div>
+                <div class="crnh">코로나 안전수칙 안내</div>
+                <di class="crnin">
+                    1. 외부에서 반드시 마스크 착용하기 &emsp; 2. 손톱까지 깨끗이 손닦기<br>
+                    &emsp;&emsp;&nbsp;&nbsp;3. 감염이 의심될 때는 보건소나 1339로 연락하기
+            </div>
 
-    </div>
+        </div>
         <div class="box4"></div>
     </div>
-    
+
 </body>
 <footer>
-<p>Copyright 2020. 아자아자팀 all rights reserved.</p>
+    <p>Copyright 2020. 아자아자팀 all rights reserved.</p>
 </footer>
+
 </html>
