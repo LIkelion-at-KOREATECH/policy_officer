@@ -120,12 +120,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-   Path(BASE_DIR, 'policy', 'static')
-]
+STATICFILES_DIRS = [ Path(BASE_DIR, 'policy', 'static') ]
+
 STATIC_ROOT = Path(BASE_DIR, 'static')
 
-MEDIA_ROOT = Path(BASE_DIR, 'media')
-
 MEDIA_URL = '/media/'
+
+MEDIA_ROOT = Path(BASE_DIR, 'media')
 

@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -9,15 +11,14 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
   <style>
-
     .logo {
       display: inline-block;
-      border: 1px solid skyblue; 
-      width: 100px; 
-      height: 80px; 
-      line-height: 80px; 
-      font-size: 50px; 
-      text-align: center; 
+      border: 1px solid skyblue;
+      width: 100px;
+      height: 80px;
+      line-height: 80px;
+      font-size: 50px;
+      text-align: center;
     }
 
     header {
@@ -79,8 +80,12 @@
       PO
     </div>
 
-    <input type="search" name="search" placeholder="원하는 정책을 검색하세요!" 
+    <form action="{% url 'search' %}" method="post">
+      {% csrf_token %}
+    <input type="search" name="q" value="{{q}}" placeholder="원하는 정책을 검색하세요!"
       style=" width:250px; height:40px; font-size: 10px;" />
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
 
     <h>인기 검색어</h>
 
@@ -116,7 +121,7 @@
       <br>
       <input type="checkbox" /> 교육
       <br><br><br>
-      <input type="submit"/>
+      <input type="submit" />
     </div>
 
   </aside>
@@ -127,35 +132,42 @@
     <div class="container">
       <div class="row">
 
-        <div class="col-6">
-          <p style="margin:20px 0px;"></p>
-          <div class="card">
 
-            <div style="border: 3px solid; width: auto; height: 300px; text-align: center; line-height: 300px;">정책 사진
-            </div>
-            <img src="images/card-image.png" alt="" class="card-img-top" />
-            <div class="card-body">
-              <h5 class="card-title">정책 제목</h5>
-              <p class="card-text" style="margin:20px 0px;">정책 관련 글이 나올 부분입니다.</p>
-              <a href="#" class="btn btn-primary">알아보기</a>
+        <div class="album py-5 bg-light">
+          <div class="container">
+            <div class="card-columns">
+              {% for policy in policies %}
+              <div class="card mb-4 shadow-sm">
+                <!-- image -->
+                {% if policy.image %}
+                <img src="{{ policy.image.url }}" class="card-img-top" alt="Policy_Image">
+                {% else %}
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
+                  xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+                  aria-label="Placeholder: Thumbnail">
+                  <title>Dreamary</title>
+                  <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
+                    dy=".3em">Profile</text>
+                </svg>
+                {% endif %}
+                <div class="card-body">
+                  <h4 class="card-title">{{ policy.name }}</h4>
+                  <h6 class="card-text">{{ policy.address }}</h6>
+                  <hr>
+                  <div class="d-flex justify-content-between align-itema-center">
+                    <div class="btn-group">
+                      <a href="{% url 'detail' policy.id %}" class="btn btn-sm btn-outline-secondary">자세히
+                        알아보기</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
             </div>
           </div>
         </div>
 
-        <div class="col-6">
-          <p style="margin:20px 0px;"></p>
-          <div class="card">
 
-            <div style="border: 3px solid; width: auto; height: 300px; text-align: center; line-height: 300px;">정책 사진
-            </div>
-            <img src="images/card-image.png" alt="" class="card-img-top" />
-            <div class="card-body">
-              <h5 class="card-title">정책 제목</h5>
-              <p class="card-text" style="margin:20px 0px;">정책 관련 글이 나올 부분입니다.</p>
-              <a href="#" class="btn btn-primary">알아보기</a>
-            </div>
-          </div>
-        </div>
 
         <div class="col-6">
           <p style="margin:20px 0px;"></p>
@@ -168,21 +180,6 @@
               <h5 class="card-title">정책 제목</h5>
               <p class="card-text" style="margin:20px 0px;">정책 관련 글이 나올 부분입니다.</p>
               <a href="{% url 'customize' %}" class="btn btn-primary">알아보기</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-6">
-          <p style="margin:20px 0px;"></p>
-          <div class="card">
-
-            <div style="border: 3px solid; width: auto; height: 300px; text-align: center; line-height: 300px;">정책 사진
-            </div>
-            <img src="images/card-image.png" alt="" class="card-img-top" />
-            <div class="card-body">
-              <h5 class="card-title">정책 제목</h5>
-              <p class="card-text" style="margin:20px 0px;">정책 관련 글이 나올 부분입니다.</p>
-              <a href="#" class="btn btn-primary">알아보기</a>
             </div>
           </div>
         </div>
