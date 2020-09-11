@@ -28,4 +28,7 @@ urlpatterns = [
     path('mypage/', views.mypage, name= "mypage"),
     path('signup/', views.signup, name= "signup"),
     path('edu/', views.edu, name= "edu"),
+    path('customize/', views.customize, name= "customize"),
+
+    
 ]

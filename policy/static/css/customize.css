@@ -1,0 +1,78 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.logo {
+    display: inline-block;
+    border: 1px solid skyblue;
+    width: 100px;
+    height: 80px;
+    line-height: 80px;
+    font-size: 50px;
+    text-align: center;
+}
+
+header {
+    height: 120px;
+    padding: 30px;
+}
+
+nav {
+    height: 50px;
+    line-height: 50px;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+aside {
+    float: left;
+    width: 15em;
+    height: 500px;
+    margin: 30px;
+    background-color: grey;
+}
+
+.aside_ul {
+    list-style: none;
+}
+
+section {
+    float: left;
+    height: 500px;
+    width: 700px;
+    margin: 30px;
+
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+li {
+    display: inline;
+    line-height: 50px;
+}
+
+.my_box {
+    border: 1px solid black;
+    background-color: gold;
+    text-align: center;
+    margin: 0 auto;
+    width: 400px;
+    height: auto;
+}
+
+table {
+    width: 100%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+}
+
+td {
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+}

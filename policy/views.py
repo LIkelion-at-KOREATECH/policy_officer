@@ -13,7 +13,9 @@ def view(request):
 def login(request):
     return render (request, 'login.html')
 
-    
+def customize(request):
+    return render (request, 'customize.html')    
+
 def mind(request):
     return render (request, 'mind.html')
     
