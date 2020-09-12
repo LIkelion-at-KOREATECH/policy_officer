@@ -18,14 +18,9 @@
             display: inline-block;
         }
 
-        .imageback {
-            background-image: url(../static/img/headerback.jpg);
-        }
-
         html,
         body {
             margin: 0px 230px 0px 230px;
-            ;
             padding: 0px;
         }
 
@@ -41,6 +36,11 @@
             color: rgb(255, 177, 60) !important;
             font-weight: 500;
             font-size: 40px;
+        }
+        .orange2 {
+            font-family: 'Jeju Gothic', sans-serif;
+            color: rgb(255, 177, 60) !important;
+            font-weight: 300;
         }
 
         .white {
@@ -169,7 +169,7 @@
         }
 
         .pto {
-            margin: 20px 10px 10px 570px;
+            margin: 20px 10px 0px 570px;
         }
 
         .crn {
@@ -183,7 +183,7 @@
 
         .box3 {
             position: absolute;
-            top: 735px;
+            top: 760px;
             left: 805px;
             width: 400px;
             height: 2.5px;
@@ -192,7 +192,7 @@
 
         .box4 {
             position: absolute;
-            top: 830px;
+            top: 860px;
             left: 805px;
             width: 400px;
             height: 2.5px;
@@ -243,7 +243,7 @@
 
 
 <body>
-    <header class="header imageback">
+    <header class="header">
         <a href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" width=50px alt="logo" class="left"></a>
         <h1 class="display-4"><span class="orange">Policy</span> <span class="blue">Officer</span></h1>
         <form action="{% url 'search' %}" method="post">
@@ -334,6 +334,9 @@
             <img src="{% static 'img/work.png' %}" width=100px alt="work">
             <img src="{% static 'img/home.png' %}" width=100px alt="home">
         </div>
+        <div>
+            <pre class="orange2">                교육                     복지                     노동                    주택</pre>
+            </div>
         <div class="crn">
             <div class="box3"></div>
             <div>
