@@ -33,6 +33,8 @@ def signup(request):
 
 def edu(request):
     return render (request, 'edu.html')
+def blog_covid(request):
+    return render (request, 'blog_covid.html')
 
 def search(request):
     policies = Policies.objects.all().order_by('-id')
