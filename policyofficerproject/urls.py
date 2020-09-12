@@ -34,5 +34,5 @@ urlpatterns = [
     path('customize/', views.customize, name= "customize"),
     path('search', views.search, name='search'),
     path('profile/<int:policy_id>/', views.detail, name = "detail"),
-
+    path('blog1/', views.blog_covid, name= "blog_covid"),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
