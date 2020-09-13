@@ -40,3 +40,5 @@ urlpatterns = [
     path('blog4/', views.blog_tom, name="blog_tom"),
     path('blog5/', views.blog_k, name="blog_k")
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
+
