@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
  
@@ -5,16 +6,35 @@
     <title>LOGIN</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="login.css">
+    
 
   </head>
-    <div id="header">
+  <style>
+    .header {
+    
+    box-sizing: border-box;
+    width: 350px;
+    height: 200px;
+    text-align : left;
+    margin: 200px auto;
+    }
+    .blind{
+    display: table;
+    width: 50px; 
+    margin: 50px auto;
+    color : black;
+    text-decoration: none;
+    text-align: center;
+
+  }
+  </style>
+  
       <h1>
-        <a class="blind" href="본링크주소"><span>PO</span>
+        <a class="blind" href="{% url 'home' %}"><span>PO</span>
         </a></h1>
 
       <!-- 로그인 폼 CSS -->
-      <div id="loginer">
+      <div class="header">
         <div id="form">
           <form action="login" method="post" enctype="multipart/form-data">
           <!--posst 방식을 사용해야한다고 하던데,,,잘 모르겟습다-->
@@ -26,8 +46,8 @@
               <label for="pwd1">Password</label>
               <input type="password" name="pwd1" placeholder="비밀번호를 입력해주세요">
               <br><br>
-              <button type="submit">로그인</button>
-              <a href="{% url 'sign up' %}">You Don't Have Your Account?</a>
+              <button type="submit">로그인</button><br>
+              <a href="{% url 'signup' %}">You Don't Have Your Account?</a>
             </fieldset>
           </form>
         </div>
