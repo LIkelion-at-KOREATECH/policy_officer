@@ -5,13 +5,10 @@ from .models import Policies
 def home(request):
     return render (request, 'home.html')
     
-def suit(request):
-    return render (request, 'suit.html')
-
-
-def view(request): 
+def suit(request): 
     policies = Policies.objects.all() 
-    return render(request, 'view.html', {'policies' : policies})
+    return render(request, 'suit.html', {'policies' : policies})
+
     
 def view(request):
      return render (request, 'view.html')
@@ -33,6 +30,8 @@ def signup(request):
 
 def edu(request):
     return render (request, 'edu.html')
+def blog_covid(request):
+    return render (request, 'blog_covid.html')
 
 def search(request):
     policies = Policies.objects.all().order_by('-id')
