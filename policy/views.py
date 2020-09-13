@@ -35,7 +35,14 @@ def edu(request):
     return render (request, 'edu.html')
 def blog_covid(request):
     return render (request, 'blog_covid.html')
-
+def blog_gugic(request):
+    return render (request, 'blog_gugic.html')
+def blog_education(request):
+    return render (request, 'blog_education.html')
+def blog_tom(request):
+    return render (request, 'blog_tom.html')
+def blog_k(request):
+    return render (request, 'blog_k.html')
 def search(request):
     policies = Policies.objects.all().order_by('-id')
 
