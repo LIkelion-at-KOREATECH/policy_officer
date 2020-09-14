@@ -10,7 +10,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+  <script type="text/javascript">
+      $(document).ready(function () {
 
+          $("#start_year, #start_month, #end_year, #end_month").change(function () {
+
+              var checkNum = 2;//3개월이면 2로 셋팅
+
+              //선택된 값을 가져온다.
+              var startYear = $("#start_year option:selected").val();
+              var startMonth = $("#start_month option:selected").val();
+              var endYear = $("#end_year option:selected").val();
+              var endMonth = $("#end_month option:selected").val();
+              //계산을 위해 명시적으로 형변환
+              var startYearNum = Number(startYear);
+              var startMonthNum = Number(startMonth);
+              var endYearNum = Number(endYear);
+              var endMonthNum = Number(endMonth);
+
+              //일단 차이를 재서 위에서 정한 월이 넘어가는지 확인	
+              var result = ((endYearNum * 12) + endMonthNum) - ((startYearNum * 12) + startMonthNum);
+
+              if (result > checkNum) {
+
+                  alert("날짜 검색 범위는 " + (checkNum + 1) + "개월 입니다.");
+
+                  if (endMonthNum <= checkNum) {
+                      startYearNum = endYearNum - 1;
+                      startMonthNum = 12 - (checkNum - endMonthNum)
+                  } else {
+                      startYearNum = endYearNum;
+                      startMonthNum = endMonthNum - checkNum;
+                  }
+
+                  $("#start_year").val(startYearNum).attr("selected", "selected");
+                  $("#start_month").val(startMonthNum).attr("selected", "selected");
+
+              };
+
+          });
+
+      });
+  </script>
 
   <style>
     @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
