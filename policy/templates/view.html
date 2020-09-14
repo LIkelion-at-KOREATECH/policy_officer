@@ -1,6 +1,8 @@
+{% extends "base.html" %}
+{% block contents %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="ko">
+
+
 
 <head>
 
@@ -25,7 +27,7 @@
 
     body,
     aside,
-    footer,
+    section,
     ul,
     ol,
     h2,
@@ -50,7 +52,6 @@
       font-size: 50px;
       text-align: center;
     }
-
 
     div {
       float: left;
@@ -218,6 +219,7 @@
 
 
     /* 카드 css 끝 */
+<<<<<<< HEAD
     /* 헤더랑 네비 css*/
     .navi {
       background-color: rgb(38, 153, 251) !important;
@@ -329,15 +331,24 @@
       float: left;
       width: 500px;
     }
+=======
+>>>>>>> c3b43186ff228a0f58a06455f0ea873a7f4d4a51
 
     .suitsuit {
       width: 320px;
       margin: 30px 14px 0px 17px;
+      display: inline-block;
     }
 
-    /* 헤더랑 네비 css*/
+    .clear {
+      clear: both;
+      clear: left;
+      clear: right;
+    }
   </style>
+</head>
 
+<<<<<<< HEAD
   <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
   <script type="text/javascript">
     $(document).ready(function () {
@@ -434,26 +445,42 @@
     </ul>
   </nav>
 
+=======
+<!-- 커서 닿으면 색 바뀌기 수정 -->
 
+<aside class="filter clear">
+  <div class="filter-title">FILTER</div>
+  <br>
+>>>>>>> c3b43186ff228a0f58a06455f0ea873a7f4d4a51
 
+  <div style="padding-left: 30px;">
+
+<<<<<<< HEAD
   <!-- 필터시작부분 block 여기넣으세요 -->
 
 
   <aside class="filter">
     <div class="filter-title">FILTER</div>
+=======
+    <div class="filter-term">기간</div>
+>>>>>>> c3b43186ff228a0f58a06455f0ea873a7f4d4a51
     <br>
+    <div class="filter-box">
+      <input class="input1" type="checkbox" />하 루
 
-    <div style="padding-left: 30px;">
+      <input class="input1" type="checkbox" />한 달
 
-      <div class="filter-term">기간</div>
-      <br>
-      <div class="filter-box">
-        <input class="input1" type="checkbox" />하 루
-
-        <input class="input1" type="checkbox" />한 달
-
-        <input class="input1" type="checkbox" />일 년
+      <input class="input1" type="checkbox" />일 년
+    </div>
+    <div class="filter-date">
+      <div class="date">직접입력</div>
+      <div class="startdate">시작일
+        <form>
+          <p><input class="input1" type="date" value="2020-09-22"></p>
+          <p><input class="box input1" type="submit" value="SEARCH"></p>
+        </form>
       </div>
+<<<<<<< HEAD
       <div class="filter-date">
         <div class="date">직접입력</div>
           <div class="startdate">시작일
@@ -519,33 +546,53 @@
               <a>
                 <div class="categoryfont">복지</div>
           </div>
-        </div>
-        <div class="category2">
-          <div class="tax" style="text-align: center;">
-            <div class="image">
-              <a href="#">
-                <img src="{% static 'img/tax.png' %}" width=63px; height=63px; alt="tax">
-                <a>
-                  <div class="categoryfont">세금</div>
-            </div>
-          </div>
-          <div class="labor">
-            <a href="#">
-              <img src="{% static 'img/labor.png' %}" width=63px; height=63px; alt="labor">
-              <a>
-                <div class="categoryfont">노동</div>
-          </div>
-        </div>
-        <div class="land">
+=======
+    </div>
+    <br></br>
+    <div class="filter-term">카테고리
+    </div>
+    <br>
+    <div class="category">
+      <div class="category1">
+        <div class="education">
           <a href="#">
-            <img src="{% static 'img/land.png' %}" width=63px; height=63px; alt="land">
+            <img src="{% static 'img/mortarboard.png' %}" width=63px; height=63px; alt="education">
             <a>
-              <div class="categoryfont">부동산</div>
+              <div class="categoryfont">교육</div>
+        </div>
+        <div class="welfare">
+          <a href="#">
+            <img src="{% static 'img/help.png' %}" width=63px; height=63px; alt="welfare">
+            <a>
+              <div class="categoryfont">복지</div>
+>>>>>>> c3b43186ff228a0f58a06455f0ea873a7f4d4a51
         </div>
       </div>
-
+      <div class="category2">
+        <div class="tax" style="text-align: center;">
+          <div class="image">
+            <a href="#">
+              <img src="{% static 'img/tax.png' %}" width=63px; height=63px; alt="tax">
+              <a>
+                <div class="categoryfont">세금</div>
+          </div>
+        </div>
+        <div class="labor">
+          <a href="#">
+            <img src="{% static 'img/labor.png' %}" width=63px; height=63px; alt="labor">
+            <a>
+              <div class="categoryfont">노동</div>
+        </div>
+      </div>
+      <div class="land">
+        <a href="#">
+          <img src="{% static 'img/land.png' %}" width=63px; height=63px; alt="land">
+          <a>
+            <div class="categoryfont">부동산</div>
+      </div>
     </div>
 
+<<<<<<< HEAD
 
   </aside>
   <!-- 필터끝나는부분 여기 endblock -->
@@ -554,35 +601,32 @@
   <!-- 본문 카드 형식 (부트스트랩) -->
   <div class="big-title">
     WELFARE&EDUCATION
+=======
+>>>>>>> c3b43186ff228a0f58a06455f0ea873a7f4d4a51
   </div>
 
-  <section>
-    <!-- 카드 일렬로 정리하는게 안됨 ㅜㅜ -->
-    <div class=>
-      <!-- 카드  -->
-      <div class="suitsuit">
-        <div class="card">
-          <div class="card-condition">
-            <!-- 카드 상태 -->
-            <div class="status-icon">NEW</div>
-            <!-- 더알아보기 버튼 -->
-            <div class="card-detail" style="float:right; margin-right:30px">
-              <a href="https://blog.naver.com/sun014371/222084686876" class="btnbtn-primary"> 더알아보기 </a>
-            </div>
-          </div>
 
-          <div class="main-picture" style="text-align: center;">
-            <a href="https://blog.naver.com/sun014371/222084686876">
-              <img src="{% static 'img/edusupport.png' %}" width=320px; height=266px; alt="위의 이미지를 누르면 연결됩니다.">
-              <a>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">교육재난지원금 및 혜택</h5>
-            <p class="card-term">2020.09.10~</p>
+</aside>
 
-          </div>
+<!-- 본문 카드 형식 (부트스트랩) -->
+<div class="big-title clear">
+  WELFARE&EDUCATION
+</div>
+
+<section class="clear">
+  <!-- 카드 일렬로 정리하는게 안됨 ㅜㅜ -->
+  <!-- 카드  -->
+  <div class="suitsuit">
+    <div class="card">
+      <div class="card-condition">
+        <!-- 카드 상태 -->
+        <div class="status-icon">NEW</div>
+        <!-- 더알아보기 버튼 -->
+        <div class="card-detail" style="float:right; margin-right:30px">
+          <a href="https://blog.naver.com/sun014371/222084686876" class="btnbtn-primary"> 더알아보기 </a>
         </div>
       </div>
+<<<<<<< HEAD
       <div class="suitsuit">
         <div class="card">
           <div class="card-condition">
@@ -633,9 +677,76 @@
         </div>
       </div>
 
+=======
 
-  </section>
+      <div class="main-picture" style="text-align: center;">
+        <a href="https://blog.naver.com/sun014371/222084686876">
+          <img src="{% static 'img/edusupport.png' %}" width=320px; height=266px; alt="위의 이미지를 누르면 연결됩니다.">
+          <a>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">교육재난지원금 및 혜택</h5>
+        <p class="card-term">2020.09.10~</p>
 
-</body>
+      </div>
+    </div>
+  </div>
+  <div class="suitsuit">
+    <div class="card">
+      <div class="card-condition">
+        <!-- 카드 상태 -->
+        <div class="status-icon" style="color:rgb(59, 163, 251)">UPDATE</div>
+        <!-- 더알아보기 버튼 -->
+        <div class="card-detail" style="float:right; margin-right:30px">
+          <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=29392274&memberNo=1676241&vType=VERTICAL"
+            class="btnbtn-primary"> 더알아보기 </a>
+        </div>
+      </div>
 
+      <div class="main-picture" stle="text-align: center;">
+        <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=29392274&memberNo=1676241&vType=VERTICAL">
+          <img src="{% static 'img/view_education.png' %}" width=320px; height=266px; alt="위의 이미지를 누르면 연결됩니다.">
+          <a>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><a href="{% url 'blog_covid' %}">제2차 국가재난지원금</a></h5>
+        <p class="card-term">2020.09.10~</p>
+
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class=suitsuit>
+    <div class="card">
+      <div class="card-condition">
+        <!-- 카드 상태 -->
+        <div class="status-icon"></div>
+        <!-- 더알아보기 버튼 -->
+        <div class="card-detail" style="float:right; margin-right:30px; margin-bottom: 3px;">
+          <a href="http://news.kmib.co.kr/article/view.asp?arcid=0015000612&code=61141111&cp=nv" class="btnbtn-primary">
+            더알아보기 </a>
+        </div>
+      </div>
+>>>>>>> c3b43186ff228a0f58a06455f0ea873a7f4d4a51
+
+      <div class="main-picture">
+        <a href="http://news.kmib.co.kr/article/view.asp?arcid=0015000612&code=61141111&cp=nv">
+          <img src="{% static 'img/landmoney.png' %}" width=321px; height=266px; alt="위의 이미지를 누르면 연결됩니다.">
+          <a>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">부동산 정책</h5>
+        <p class="card-term">~2020.09.30</p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<<<<<<< HEAD
 </html>
+=======
+{% endblock %}
+{% include "footer.html" %}
+<!-- view에는 제대로 footer가 아래에 안 있네요 8ㅁ8 -->
+>>>>>>> c3b43186ff228a0f58a06455f0ea873a7f4d4a51
