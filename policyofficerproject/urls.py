@@ -38,7 +38,8 @@ urlpatterns = [
     path('blog2/', views.blog_gugic, name= "blog_gugic"),
     path('blog3/', views.blog_education, name="blog_education"),
     path('blog4/', views.blog_tom, name="blog_tom"),
-    path('blog5/', views.blog_k, name="blog_k")
+    path('blog5/', views.blog_k, name="blog_k"),
+    path('filter/', views.filteraside, name="filteraside"),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 
 

@@ -321,7 +321,7 @@
 
     html,
     body {
-      margin: 0px 230px 0px 230px;
+      margin: 0px 50px 0px 50px;
       padding: 0px;
     }
 
@@ -338,12 +338,59 @@
     /* 헤더랑 네비 css*/
   </style>
 
+  <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+
+      $("#start_year, #start_month, #end_year, #end_month").change(function () {
+
+        var checkNum = 2;//3개월이면 2로 셋팅
+
+        //선택된 값을 가져온다.
+        var startYear = $("#start_year option:selected").val();
+        var startMonth = $("#start_month option:selected").val();
+        var endYear = $("#end_year option:selected").val();
+        var endMonth = $("#end_month option:selected").val();
+        //계산을 위해 명시적으로 형변환
+        var startYearNum = Number(startYear);
+        var startMonthNum = Number(startMonth);
+        var endYearNum = Number(endYear);
+        var endMonthNum = Number(endMonth);
+
+        //일단 차이를 재서 위에서 정한 월이 넘어가는지 확인	
+        var result = ((endYearNum * 12) + endMonthNum) - ((startYearNum * 12) + startMonthNum);
+
+        if (result > checkNum) {
+
+          alert("날짜 검색 범위는 " + (checkNum + 1) + "개월 입니다.");
+
+          if (endMonthNum <= checkNum) {
+            startYearNum = endYearNum - 1;
+            startMonthNum = 12 - (checkNum - endMonthNum)
+          } else {
+            startYearNum = endYearNum;
+            startMonthNum = endMonthNum - checkNum;
+          }
+
+          $("#start_year").val(startYearNum).attr("selected", "selected");
+          $("#start_month").val(startMonthNum).attr("selected", "selected");
+
+        };
+
+      });
+
+    });
+  </script>
+  
+
 
   <title>PolicyOfficer - 정책 보기</title>
 
 
 
 <body>
+
+  
   <!-- CSS only -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -351,13 +398,13 @@
   <!-- JS, Popper.js, and jQuery -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-  </script>
+    </script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
     integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-  </script>
+    </script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
-  </script>
+    </script>
 
   <header class="header">
     <a href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" width=50px alt="logoimg" class="left"></a>
@@ -389,7 +436,7 @@
 
 
 
-  <!-- 커서 닿으면 색 바뀌기 수정 -->
+  <!-- 필터시작부분 block 여기넣으세요 -->
 
 
   <aside class="filter">
@@ -409,12 +456,50 @@
       </div>
       <div class="filter-date">
         <div class="date">직접입력</div>
-        <div class="startdate">시작일
-          <form>
-            <p><input class="input1" type="date" value="2020-09-22"></p>
-            <p><input class="box input1" type="submit" value="SEARCH"></p>
-          </form>
-        </div>
+          <div class="startdate">시작일
+            <form>
+              
+              <select id="start_year" name="start_year">
+                <option value="2015">2015</option>
+                <option value="2014">2014</option>
+                <option value="2013">2013</option>
+              </select>
+              <select id="start_month" name="start_month">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select> ~
+              <select id="end_year" name="end_year">
+                <option value="2015">2015</option>
+                <option value="2014">2014</option>
+                <option value="2013">2013</option>
+              </select>
+              <select id="end_month" name="end_month">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
+              <input type="submit" src="/images/button/search.gif" alt="검색"  />
+            </form>
+          </div>
       </div>
       <br></br>
       <div class="filter-term">카테고리
@@ -423,13 +508,13 @@
       <div class="category">
         <div class="category1">
           <div class="education">
-            <a href="#">
+            <a href="{% url 'blog_education' %}">
               <img src="{% static 'img/mortarboard.png' %}" width=63px; height=63px; alt="education">
               <a>
                 <div class="categoryfont">교육</div>
           </div>
           <div class="welfare">
-            <a href="#">
+            <a href="{% url 'blog_education' %}">
               <img src="{% static 'img/help.png' %}" width=63px; height=63px; alt="welfare">
               <a>
                 <div class="categoryfont">복지</div>
@@ -463,6 +548,8 @@
 
 
   </aside>
+  <!-- 필터끝나는부분 여기 endblock -->
+
 
   <!-- 본문 카드 형식 (부트스트랩) -->
   <div class="big-title">
@@ -496,55 +583,55 @@
           </div>
         </div>
       </div>
-    <div class="suitsuit">
-      <div class="card">
-        <div class="card-condition">
-          <!-- 카드 상태 -->
-          <div class="status-icon" style="color:rgb(59, 163, 251)">UPDATE</div>
-          <!-- 더알아보기 버튼 -->
-          <div class="card-detail" style="float:right; margin-right:30px">
-            <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=29392274&memberNo=1676241&vType=VERTICAL"
-              class="btnbtn-primary"> 더알아보기 </a>
+      <div class="suitsuit">
+        <div class="card">
+          <div class="card-condition">
+            <!-- 카드 상태 -->
+            <div class="status-icon" style="color:rgb(59, 163, 251)">UPDATE</div>
+            <!-- 더알아보기 버튼 -->
+            <div class="card-detail" style="float:right; margin-right:30px">
+              <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=29392274&memberNo=1676241&vType=VERTICAL"
+                class="btnbtn-primary"> 더알아보기 </a>
+            </div>
+          </div>
+
+          <div class="main-picture" stle="text-align: center;">
+            <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=29392274&memberNo=1676241&vType=VERTICAL">
+              <img src="{% static 'img/view_education.png' %}" width=320px; height=266px; alt="위의 이미지를 누르면 연결됩니다.">
+              <a>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><a href="{% url 'blog_covid' %}">제2차 국가재난지원금</a></h5>
+            <p class="card-term">2020.09.10~</p>
+
           </div>
         </div>
-
-        <div class="main-picture" stle="text-align: center;">
-          <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=29392274&memberNo=1676241&vType=VERTICAL">
-            <img src="{% static 'img/view_education.png' %}" width=320px; height=266px; alt="위의 이미지를 누르면 연결됩니다.">
-            <a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title"><a href="{% url 'blog_covid' %}">제2차 국가재난지원금</a></h5>
-          <p class="card-term">2020.09.10~</p>
-
-        </div>
       </div>
-    </div>
-    <br>
-    <div class=suitsuit>
-      <div class="card">
-        <div class="card-condition">
-          <!-- 카드 상태 -->
-          <div class="status-icon"></div>
-          <!-- 더알아보기 버튼 -->
-          <div class="card-detail" style="float:right; margin-right:30px; margin-bottom: 3px;">
-            <a href="http://news.kmib.co.kr/article/view.asp?arcid=0015000612&code=61141111&cp=nv"
-              class="btnbtn-primary"> 더알아보기 </a>
+      <br>
+      <div class=suitsuit>
+        <div class="card">
+          <div class="card-condition">
+            <!-- 카드 상태 -->
+            <div class="status-icon"></div>
+            <!-- 더알아보기 버튼 -->
+            <div class="card-detail" style="float:right; margin-right:30px; margin-bottom: 3px;">
+              <a href="http://news.kmib.co.kr/article/view.asp?arcid=0015000612&code=61141111&cp=nv"
+                class="btnbtn-primary"> 더알아보기 </a>
+            </div>
+          </div>
+
+          <div class="main-picture">
+            <a href="http://news.kmib.co.kr/article/view.asp?arcid=0015000612&code=61141111&cp=nv">
+              <img src="{% static 'img/landmoney.png' %}" width=321px; height=266px; alt="위의 이미지를 누르면 연결됩니다.">
+              <a>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">부동산 정책</h5>
+            <p class="card-term">~2020.09.30</p>
+
           </div>
         </div>
-
-        <div class="main-picture">
-          <a href="http://news.kmib.co.kr/article/view.asp?arcid=0015000612&code=61141111&cp=nv">
-            <img src="{% static 'img/landmoney.png' %}" width=321px; height=266px; alt="위의 이미지를 누르면 연결됩니다.">
-            <a>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">부동산 정책</h5>
-          <p class="card-term">~2020.09.30</p>
-
-        </div>
       </div>
-</div>
 
 
   </section>

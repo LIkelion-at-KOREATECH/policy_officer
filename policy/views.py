@@ -7,9 +7,7 @@ def home(request):
     
 def suit(request): 
     policies = Policies.objects.all() 
-    return render(request, 'suit.html', {'policies' : policies})
-
-    
+    return render(request, 'suit.html', {'policies' : policies})  
 def view(request):
      return render (request, 'view.html')
 
@@ -40,8 +38,13 @@ def blog_tom(request):
     return render (request, 'blog_tom.html')
 def blog_k(request):
     return render (request, 'blog_k.html')
+def filteraside(request):
+    return render (request, 'filteraside.html')
 def search(request):
     policies = Policies.objects.all().order_by('-id')
+
+
+
 
     q = request.POST.get('q', "") 
 
