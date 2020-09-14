@@ -30,16 +30,15 @@ urlpatterns = [
     path('mind/', views.mind, name= "mind"),
     path('mypage/', views.mypage, name= "mypage"),
     path('signup/', views.signup, name= "signup"),
-    path('edu/', views.edu, name= "edu"),
-    path('customize/', views.customize, name= "customize"),
     path('search', views.search, name='search'),
     path('profile/<int:policy_id>/', views.detail, name = "detail"),
     path('blog1/', views.blog_covid, name= "blog_covid"),
     path('blog2/', views.blog_gugic, name= "blog_gugic"),
     path('blog3/', views.blog_education, name="blog_education"),
     path('blog4/', views.blog_tom, name="blog_tom"),
-    path('blog5/', views.blog_k, name="blog_k"),
     path('filter/', views.filteraside, name="filteraside"),
+    path('blog5/', views.blog_k, name="blog_k"),
+
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 
 

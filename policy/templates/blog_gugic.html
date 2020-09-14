@@ -10,6 +10,77 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
 
+	<script type="text/javascript">
+		// 나이 제한 확인하기
+		var minAge = 18;
+		var maxAge = 34;
+		var minGraduation = 2;
+		var today = new Date()
+		//Calculates age from given Birth Date in the form//
+		function _calcAge(birthDate, givenDate) {
+		   givenDate = new Date(today);
+		   var dt1 = document.getElementById('date').value;
+		   var birthDate = new Date(dt1);
+		   var years = (givenDate.getFullYear() - birthDate.getFullYear());
+  
+		   if (givenDate.getMonth() < birthDate.getMonth() ||
+			  givenDate.getMonth() == birthDate.getMonth() && givenDate.getDate() < birthDate.getDate()) {
+			  years--;
+		   }
+  
+		   return years;
+		}
+  
+		//Compares calculated age with minimum age and acts according to rules//
+		function _setAge() {
+  
+		   var age = _calcAge();
+		   var graduDate = _calcDate1();
+  
+  
+		   if (age >= minAge && age <= maxAge && (document.getElementById("graduationBox").checked == true ||
+				 document.getElementById("dropBox")
+				 .checked == true) && document.getElementById("currentNoJob").checked == true && graduDate <=
+			  minGraduation &&
+			  document.getElementById("userIncome").value <= 160) {
+			  alert("대상자입니다.");
+  
+		   } else
+			  alert("대상자가 아닙니다.");
+  
+  
+  
+  
+  
+		}
+  
+		// 졸업, 중퇴 날짜 계산 
+		function _calcDate1(graduatedDate, givenDate) {
+		   givenDate = new Date(today);
+		   var dt1 = document.getElementById('userGraduatedDate').value;
+		   var graduatedDate = new Date(dt1);
+		   var years = (givenDate.getFullYear() - graduatedDate.getFullYear());
+  
+		   if (givenDate.getMonth() < graduatedDate.getMonth() ||
+			  givenDate.getMonth() == graduatedDate.getMonth() && givenDate.getDate() < graduatedDate
+			  .getDate()) {
+			  years--;
+		   }
+  
+		   return years;
+		}
+  
+		// 졸업 or 중퇴 체크하면 달력 뜨기
+		function checkAble1(frm) {
+		   if (frm.graduationBox.checked == true) {
+			  frm.userGraduatedDate.disabled = false;
+		   } else {
+			  frm.userGraduatedDate.disabled = true;
+		   }
+		}
+	 </script>
+  
+
 	<style>
 		@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
 
@@ -265,30 +336,88 @@
 			width: 320px;
 			margin: 30px 14px 0px 17px;
 		}
-	.blog {
+
+		.blog {
 			background-color: white;
 			box-sizing: border-box;
 			border-radius: 20px 20px 20px 20px;
 			box-shadow: 1px 3px 6px rgba(0, 0, 0, .25);
 			border: solid rgba(241, 223, 223, .100) 1px;
 			width: 650px;
-			height: auto;
-      		margin-top: 30px;
+			height: 100%;
+			margin-top: 30px;
 			margin-left: 20px;
-			padding-bottom: 20px;
 		}
-  	.blog-title {
+
+		.blog-title {
 			float: none;
 			text-align: center;
 			margin-top: 30px;
 			font-size: 22px;
 		}
-     .blog-mtitle {
+
+		.blog-mtitle {
 			float: none;
-			
+
 			margin-bottom: 10px;
 			font-size: 18px;
 
+		}
+
+		table {
+			width: 100%;
+			border-top: 1px solid #444444;
+		}
+
+		td {
+			padding: 10px;
+			text-align: center;
+		}
+
+		.blog-part {
+			float: none;
+			text-align: right;
+			margin-right: 30px;
+			margin-bottom: 10px;
+			font-size: 22px;
+		}
+
+		.blog-image {
+			text-align: center;
+			width: 100%;
+			height: 100%;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 30px;
+			display: block;
+		}
+
+		table {
+			width: 100%;
+			border-top: 1px solid #444444;
+		}
+
+		td {
+			padding: 10px;
+			text-align: center;
+		}
+
+		.blog-part {
+			float: none;
+			text-align: right;
+			margin-right: 30px;
+			margin-bottom: 10px;
+			font-size: 22px;
+		}
+
+		.blog-image {
+			text-align: center;
+			width: 100%;
+			height: 100%;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 30px;
+			display: block;
 		}
 
 		출처: https: //dgkim5360.tistory.com/entry/bootstrap-adjust-container-width [개발새발로그]
@@ -301,192 +430,231 @@
 
 
 
-	<body>
-		<!-- CSS only -->
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-		 crossorigin="anonymous">
+<body>
+	<!-- CSS only -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-		<!-- JS, Popper.js, and jQuery -->
-		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-		 crossorigin="anonymous">
+	<!-- JS, Popper.js, and jQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
 
-		</script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-		 crossorigin="anonymous">
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
 
-		</script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-		 crossorigin="anonymous">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
 
-		</script>
+	</script>
 
-		<header class="header">
-			<a href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" width=50px alt="logoimg" class="left"></a>
-    <h1 class="display-4"><span class="orange">Policy</span> <span class="blue">Officer</span></h1>
-    <form action="{% url 'search' %}" method="post">
-      {% csrf_token %}
-      <span class="right search">
-        <input class="input2" type="search" name="q" value="{{q}}" placeholder="검색어 입력">
-        <button class="button1">검색</button>
-      </span>
-    </form>
-  </header>
-  <nav>
-    <ul class="nav justify-content-center navi">
-      <span class="box5"></span>
-      <li class="nav-item">
-        <a class="nav-link white" href="{% url 'view' %}">정책보기</a>
-      </li>
-      <span class="box5"></span>
-      <li class="nav-item">
-        <a class="nav-link white" href="{% url 'suit' %}">맞춤정책</a>
-      </li>
+	<header class="header">
+		<a href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" width=50px alt="logoimg" class="left"></a>
+		<h1 class="display-4"><span class="orange">Policy</span> <span class="blue">Officer</span></h1>
+		<form action="{% url 'search' %}" method="post">
+			{% csrf_token %}
+			<span class="right search">
+				<input class="input2" type="search" name="q" value="{{q}}" placeholder="검색어 입력">
+				<button class="button1">검색</button>
+			</span>
+		</form>
+	</header>
+	<nav>
+		<ul class="nav justify-content-center navi">
+			<span class="box5"></span>
+			<li class="nav-item">
+				<a class="nav-link white" href="{% url 'view' %}">정책보기</a>
+			</li>
+			<span class="box5"></span>
+			<li class="nav-item">
+				<a class="nav-link white" href="{% url 'suit' %}">맞춤정책</a>
+			</li>
 
-      <span class="box5"></span>
+			<span class="box5"></span>
 
-      <a href="{% url 'login' %}"><button class="button2">로그인</button></a>
-    </ul>
-  </nav>
-
-
-
-  <!-- 커서 닿으면 색 바뀌기 수정 -->
+			<a href="{% url 'login' %}"><button class="button2">로그인</button></a>
+		</ul>
+	</nav>
 
 
-  <aside class="filter">
-    <div class="filter-title">FILTER</div>
-    <br>
 
-    <div style="padding-left: 30px;">
-
-      <div class="filter-term">기간</div>
-      <br>
-      <div class="filter-box">
-        <input class="input1" type="checkbox" />하 루
-
-        <input class="input1" type="checkbox" />한 달
-
-        <input class="input1" type="checkbox" />일 년
-      </div>
-      <div class="filter-date">
-        <div class="date">직접입력</div>
-        <div class="startdate">시작일
-          <form>
-            <p><input class="input1" type="date" value="2020-09-22"></p>
-            <p><input class="box input1" type="submit" value="SEARCH"></p>
-          </form>
-        </div>
-      </div>
-      <br></br>
-      <div class="filter-term">카테고리
-      </div>
-      <br>
-      <div class="category">
-        <div class="category1">
-          <div class="education">
-            <a href="#">
-              <img src="{% static 'img/mortarboard.png' %}" width=63px; height=63px; alt="education">
-              <a>
-                <div class="categoryfont">교육</div>
-          </div>
-          <div class="welfare">
-            <a href="#">
-              <img src="{% static 'img/help.png' %}" width=63px; height=63px; alt="welfare">
-              <a>
-                <div class="categoryfont">복지</div>
-          </div>
-        </div>
-        <div class="category2">
-          <div class="tax" style="text-align: center;">
-            <div class="image">
-              <a href="#">
-                <img src="{% static 'img/tax.png' %}" width=63px; height=63px; alt="tax">
-                <a>
-                  <div class="categoryfont">소득</div>
-            </div>
-          </div>
-          <div class="labor">
-            <a href="#">
-              <img src="{% static 'img/labor.png' %}" width=63px; height=63px; alt="labor">
-              <a>
-                <div class="categoryfont">취업</div>
-          </div>
-        </div>
-        <div class="land">
-          <a href="#">
-            <img src="{% static 'img/land.png' %}" width=63px; height=63px; alt="land">
-            <a>
-              <div class="categoryfont">부동산</div>
-        </div>
-      </div>
-
-    </div>
+	<!-- 커서 닿으면 색 바뀌기 수정 -->
 
 
-  </aside>
-<!--블로그-->
-<aside class="blog">
-    <div class="blog-title">청년 구직활동 지원금</div>
-    <br>
+	<aside class="filter">
+		<div class="filter-title">FILTER</div>
+		<br>
 
-    <div style="padding-left: 30px; padding-right:10px;">
+		<div style="padding-left: 30px;">
 
-      <div class="filter-term"></div>
-      <br><div style="padding-right: 30px;"></div>
-	  <div class="blog-mtitle">
-		1. 청년구직활동 지원금이란?</div>
-		<a>- 월 50만원씩 6개월 지원 ! 하는 청년을 위한 취업정책</a><br><br>
-      
-		<div class="blog-mtitle">2. 대상</div>
-		연령 : 만 18세~ 34세
-		<br>거주지 및 소득 : 기준중위소득 120% 이하(4인 가구 기준 5,699,009원, '20년) 최근 3개월 평균 건강보험료 부과액(부과액 확인이 어려운 경우 납입액)이 가구원 수에 따른 기준중위소득의 건강보험료 부과액이하여야 함)
-		<br>학력 : 신청 시점 기준 고등학교 이하·대학교·대학원 졸업·중퇴 후 2년이 경과 되지 않은 미취업자
-		<br>* 고등학교·대학교·대학원 재학생 참여 불가(졸업학점을 모두 이수한 졸업 유예‧수료‧예정자는 참여가능)
-		<br><br>
-		<div class="blog-mtitle">3. 신청절차</div>
-		
-		① 신청 및 접수
-		<br>- 온라인 청년센터(youthcenter.go.kr)에서 매월 25일까지 신청 (웹, 모바일 모두 가능)
-		<br>- 구직활동 계획서 작성
-		<br>- 오프라인 예비교육(고용센터)장소는 신청자가 선택 가능
-		<br>- 신청 시 필요 서류 등 세부정보 추후 안내 예정
-		<br><br>
-		② 자격요건 심사 및 대상 선정
-		<br>- 신청서 제출일 기준으로 참여자격 판단
-		<br>- 참여 도중 취업 또는 창업하는 경우, 구직활동 지원금 지원 중단
-		<br>- 자격요건 충족여부 확인 후 우선순위 반영하여 선정
-		<br>- 구직활동 인정범위: 취업관련 스터디 등 기타 개인적인 취업준비 활동을 폭넓게 인정
-		<br><br>
-		③ 예비교육: 매월 9일~19일 중 센터별로 자율적으로 운영
-		<br>- 온라인(제도소개, 구직준비도검사), 오프라인(제도소개, 고용서비스 안내)
-		<br>- 소규모 스터디형 프로그램, 일대일 맞춤형 상담 프로그램, 심리상담 제공
-		<br>- 지원금의 목적, 카드 사용방법, 구직활동 보고서 작성요령, 고용센터 프로그램 등 안내
-		<br>- 불출석 시 탈락 처리
-		
-		④ 카드신청 및 발급
-		- 예비교육 신청 시 카드와 카드발급방법 선택
-		- 예비교육 후 카드 발급
-		
-		⑤ 구직활동 보고서 제출 및 지원금 지급
-		- 매월 20일 24:00까지 구직활동보고서 작성 및 제출
-		- 고용센터 내용 확인 및 지원금 지급 결정 후 카드사가 다음 월 1일 포인트 지급
-		- [클린카드] 지급
-		<br><br>
-		<a href="youthcenter.go.kr/youngPlcyUnif/youngPlcyUnifDtl.do?bizId=2721" target=blank>자세히보기</a>
-</div>
+			<div class="filter-term">기간</div>
+			<br>
+			<div class="filter-box">
+				<input class="input1" type="checkbox" />하 루
 
-      
-      </div>
+				<input class="input1" type="checkbox" />한 달
 
-    </div>
+				<input class="input1" type="checkbox" />일 년
+			</div>
+			<div class="filter-date">
+				<div class="date">직접입력</div>
+				<div class="startdate">시작일
+					<form>
+						<p><input class="input1" type="date" value="2020-09-22"></p>
+						<p><input class="box input1" type="submit" value="SEARCH"></p>
+					</form>
+				</div>
+			</div>
+			<br></br>
+			<div class="filter-term">카테고리
+			</div>
+			<br>
+			<div class="category">
+				<div class="category1">
+					<div class="education">
+						<a href="#">
+							<img src="{% static 'img/mortarboard.png' %}" width=63px; height=63px; alt="education">
+							<a>
+								<div class="categoryfont">교육</div>
+					</div>
+					<div class="welfare">
+						<a href="#">
+							<img src="{% static 'img/help.png' %}" width=63px; height=63px; alt="welfare">
+							<a>
+								<div class="categoryfont">복지</div>
+					</div>
+				</div>
+				<div class="category2">
+					<div class="tax" style="text-align: center;">
+						<div class="image">
+							<a href="#">
+								<img src="{% static 'img/tax.png' %}" width=63px; height=63px; alt="tax">
+								<a>
+									<div class="categoryfont">소득</div>
+						</div>
+					</div>
+					<div class="labor">
+						<a href="#">
+							<img src="{% static 'img/labor.png' %}" width=63px; height=63px; alt="labor">
+							<a>
+								<div class="categoryfont">취업</div>
+					</div>
+				</div>
+				<div class="land">
+					<a href="#">
+						<img src="{% static 'img/land.png' %}" width=63px; height=63px; alt="land">
+						<a>
+							<div class="categoryfont">부동산</div>
+				</div>
+			</div>
+
+		</div>
 
 
-  </aside>
+	</aside>
+	<!--블로그-->
+	<aside class="blog">
+		<div class="blog-title">지역인재 장학금</div>
+		<br>
+		<div class="blog-part">한국장학재단</div>
 
-</div>
+		<div style="padding-left: 30px;">
+			<div class="filter-term"></div>
+			<br>
+			<div class="blog-image"><img src="{% static 'img/jobseeking.png' %}" alt="covid">
+			</div>
 
 
-  </section>
+			<div style="padding-right: 30px;">
+				<div class="blog-mtitle">
+					1. 청년구직활동 지원금이란?</div>
+					<a>- 월 50만원씩 6개월 지원 ! 하는 청년을 위한 취업정책</a><br><br>
+				  
+					<div class="blog-mtitle">2. 대상</div>
+					연령 : 만 18세~ 34세
+					<br>거주지 및 소득 : 기준중위소득 120% 이하(4인 가구 기준 5,699,009원, '20년) 최근 3개월 평균 건강보험료 부과액(부과액 확인이 어려운 경우 납입액)이 가구원 수에 따른 기준중위소득의 건강보험료 부과액이하여야 함)
+					<br>학력 : 신청 시점 기준 고등학교 이하·대학교·대학원 졸업·중퇴 후 2년이 경과 되지 않은 미취업자
+					<br>* 고등학교·대학교·대학원 재학생 참여 불가(졸업학점을 모두 이수한 졸업 유예‧수료‧예정자는 참여가능)
+					<br><br>
+					<div class="blog-mtitle">3. 신청절차</div>
+					
+					① 신청 및 접수
+					<br>- 온라인 청년센터(youthcenter.go.kr)에서 매월 25일까지 신청 (웹, 모바일 모두 가능)
+					<br>- 구직활동 계획서 작성
+					<br>- 오프라인 예비교육(고용센터)장소는 신청자가 선택 가능
+					<br>- 신청 시 필요 서류 등 세부정보 추후 안내 예정
+					<br><br>
+					② 자격요건 심사 및 대상 선정
+					<br>- 신청서 제출일 기준으로 참여자격 판단
+					<br>- 참여 도중 취업 또는 창업하는 경우, 구직활동 지원금 지원 중단
+					<br>- 자격요건 충족여부 확인 후 우선순위 반영하여 선정
+					<br>- 구직활동 인정범위: 취업관련 스터디 등 기타 개인적인 취업준비 활동을 폭넓게 인정
+					<br><br>
+					③ 예비교육: 매월 9일~19일 중 센터별로 자율적으로 운영
+					<br>- 온라인(제도소개, 구직준비도검사), 오프라인(제도소개, 고용서비스 안내)
+					<br>- 소규모 스터디형 프로그램, 일대일 맞춤형 상담 프로그램, 심리상담 제공
+					<br>- 지원금의 목적, 카드 사용방법, 구직활동 보고서 작성요령, 고용센터 프로그램 등 안내
+					<br>- 불출석 시 탈락 처리
+					
+					④ 카드신청 및 발급
+					- 예비교육 신청 시 카드와 카드발급방법 선택
+					- 예비교육 후 카드 발급
+					
+					⑤ 구직활동 보고서 제출 및 지원금 지급
+					- 매월 20일 24:00까지 구직활동보고서 작성 및 제출
+					- 고용센터 내용 확인 및 지원금 지급 결정 후 카드사가 다음 월 1일 포인트 지급
+					- [클린카드] 지급
+					<br><br>
+					<a href="youthcenter.go.kr/youngPlcyUnif/youngPlcyUnifDtl.do?bizId=2721" target=blank>자세히보기</a>
+
+				<p style="text-align: center; font-size: x-large;">청년구직활동지원금 신청 자격 알아보기</p>
+			
+				<table>
+					<tr>
+					   <td>생년월일</td>
+					   <td> <input type="date" name="date of birth" id="date" /> </td>
+					</tr>
+					<tr>
+					   <td>최종 학력</td>
+					   <td> <input type="checkbox" id="userCollege" value="college"> 재학
+						  <input type="checkbox" id="graduationBox" onClick="checkAble1(this.form)"> 졸업 OR 중퇴
+						  <input type="date" id="userGraduatedDate">
+					   </td>
+					</tr>
+					<tr>
+					   <td>취업 유무</td>
+					   <td> <input type="checkbox" id="currentJob" value="job"> Yes
+						  <input type="checkbox" id="currentNoJob" value="noJob"> No
+					   </td>
+					</tr>
+					<tr>
+					   <td>기준 중위 소득</td>
+					   <td> <input type="text" id="userIncome">
+						  <input type="button" value="나의 중위 소득 확인하기">
+					   </td>
+					</tr>
+	 
+				 </table>
+	 
+				 <!-- 생년월일, 취업유무, 최종학력 체크박스에 관한 submit -->
+				 <input type="submit" name="submit" id="submit" value="확인" onClick="_setAge();"
+					style="float: right; margin-right: 20px; margin-top: 20px;" />
+	 
+
+			</div><br>
+
+		</div>
+
+		</div>
+
+
+	</aside>
+
+	</div>
+
+
+	</section>
 
 </body>
 

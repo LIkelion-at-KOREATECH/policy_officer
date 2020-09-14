@@ -9,13 +9,11 @@ def suit(request):
     policies = Policies.objects.all() 
     return render(request, 'suit.html', {'policies' : policies})  
 def view(request):
-     return render (request, 'view.html')
+     policies = Policies.objects.all() 
+     return render (request, 'view.html', {'policies' : policies})
 
 def login(request):
-    return render (request, 'login.html')
-
-def customize(request):
-    return render (request, 'customize.html')    
+    return render (request, 'login.html')    
 
 def mind(request):
     return render (request, 'mind.html')
@@ -26,8 +24,6 @@ def mypage(request):
 def signup(request):
     return render (request, 'signup.html')
 
-def edu(request):
-    return render (request, 'edu.html')
 def blog_covid(request):
     return render (request, 'blog_covid.html')
 def blog_gugic(request):
@@ -40,6 +36,7 @@ def blog_k(request):
     return render (request, 'blog_k.html')
 def filteraside(request):
     return render (request, 'filteraside.html')
+    
 def search(request):
     policies = Policies.objects.all().order_by('-id')
 
