@@ -1,193 +1,360 @@
+{% extends "base.html" %}
+{% block contents %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="ko">
+
 
 <head>
 
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-
-    <style>
-        .logo {
-            display: inline-block;
-            border: 1px solid skyblue;
-            width: 100px;
-            height: 80px;
-            line-height: 80px;
-            font-size: 50px;
-            text-align: center;
-        }
-
-        header {
-            height: 120px;
-            padding: 30px;
-        }
-
-        nav {
-            height: 50px;
-            line-height: 50px;
-            align-items: center;
-            border-bottom: 1px solid black;
-        }
-
-        aside {
-            float: left;
-            width: 15em;
-            height: 500px;
-            margin: 30px;
-            background-color: grey;
-        }
-
-        .aside_ul {
-            list-style: none;
-        }
-
-        section {
-            float: left;
-            height: 500px;
-            margin: 30px;
-
-        }
-
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        li {
-            display: inline;
-            line-height: 50px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
 
-    <title>PolicyOfficer - 정책 보기</title>
+  <style>
+    @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
 
+    @font-face {
+      font-family: kyeonggi;
+      src: url({%static 'fonts/경기천년제목V_Bold.ttf' %});
+    }
+
+    @font-face {
+      font-family: kbiz;
+      src: url({%static 'fonts/kbiz.ttf' %});
+    }
+
+    body,
+    aside,
+    section,
+    ul,
+    ol,
+    h2,
+    h3,
+    h4,
+    h5,
+    form,
+    p,
+    b,
+    em {
+      margin: 0;
+      padding: 0;
+      font-family: kbiz;
+    }
+
+    .logo {
+      display: inline-block;
+      border: 1px solid skyblue;
+      width: 100px;
+      height: 80px;
+      line-height: 80px;
+      font-size: 50px;
+      text-align: center;
+    }
+
+    div {
+      float: left;
+      font-family: kbiz;
+    }
+
+    aside {
+      float: left;
+      width: 15em;
+      height: 500px;
+      margin: 30px 10px 30px 10px;
+      background-color: grey;
+    }
+
+    /* 필터부분 */
+    .filter {
+      background-color: white;
+      box-sizing: border-box;
+      border-radius: 20px 20px 20px 20px;
+      box-shadow: 1px 3px 6px rgba(0, 0, 0, .25);
+      border: solid rgba(241, 223, 223, .100) 1px;
+      width: 334px;
+      height: 961px;
+    }
+
+    /* 필터글자 */
+    .filter-title {
+      float: none;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 22px;
+    }
+
+    .filter-term {
+
+      float: none;
+      display: block;
+      border-bottom: 2px solid rgb(220, 211, 211);
+      text-decoration: none;
+      margin-right: 30px;
+      color: rgb(112, 112, 112);
+      font-size: 18px;
+    }
+
+    .date {
+      float: none;
+    }
+
+    .input1 {
+      float: none;
+      text-align: center;
+    }
+
+    .filter-date {
+      float: none;
+      display: inline-flex;
+      box-sizing: border-box;
+      border-radius: 10px;
+      box-shadow: 1px 3px 6px rgba(0, 0, 0, .25);
+      border: solid rgba(255, 255, 255, .100) 1px;
+
+    }
+
+    .category {
+      text-align: center;
+    }
+
+    .category1,
+    .category2 {
+
+      float: none;
+      display: block;
+      margin: 0px auto;
+    }
+
+    .education,
+    .welfare,
+    .labor,
+    .tax,
+    .land {
+      box-sizing: border-box;
+      border-radius: 10px;
+      box-shadow: 1px 3px 6px rgba(0, 0, 0, .25);
+      border: solid rgba(255, 255, 255, .100) 1px;
+      padding: 15px 20px 0px 20px;
+      margin: 10px;
+    }
+
+
+
+    .categoryfont {
+      float: none;
+      text-align: center;
+      font-size: 18px;
+      color: rgb(112, 112, 112);
+
+    }
+
+    /* 카드 css */
+
+    /* 카드 크기 및 설정 */
+    .big-title {
+      float: none;
+      display: block;
+      margin: 20px 200px 0px 380px;
+      border-bottom: 4px solid rgb(255, 177, 60);
+      font-size: 22px;
+      font-family: kyeonggi;
+    }
+
+    .card {
+      width: 322px;
+      height: 380px;
+      box-sizing: border-box;
+      border-radius: 20px 20px 20px 20px;
+      box-shadow: 1px 3px 6px rgba(0, 0, 0, .25);
+      border: solid rgba(255, 255, 255, .100) 1px;
+
+    }
+
+    /* 더알아보기 */
+    .btnbtn-primary {
+      width: 69px;
+      height: 19px;
+      box-sizing: border-box;
+      border: rgb(59, 169, 251);
+      background-color: rgb(59, 169, 251);
+      border-radius: 10px;
+      color: white;
+      font-size: 10px;
+      padding: 3px 5px 3px 5px;
+    }
+
+    /* new or updated 카드 왼쪽 위 */
+    .status-icon {
+      margin-left: 20px;
+      float: left;
+      color: red;
+      font-size: 18px;
+    }
+
+    .card-body {
+      float: none;
+    }
+
+    .card-title {
+
+      display: block;
+      text-align: center;
+      font-size: 18px;
+
+    }
+
+    .card-term {
+      float: right;
+      vertical-align: bottom;
+      font-size: 13px;
+    }
+
+    .main-picture {
+
+      height: 266px;
+
+    }
+
+
+    /* 카드 css 끝 */
+
+    .suitsuit {
+      width: 320px;
+      margin: 30px 14px 0px 17px;
+      display: inline-block;
+    }
+
+    .clear {
+      clear: both;
+      clear: left;
+      clear: right;
+    }
+  </style>
 </head>
 
-<body>
+<!-- 커서 닿으면 색 바뀌기 수정 -->
 
-    <!-- 헤더 -->
+<aside class="filter clear">
+  <div class="filter-title">FILTER</div>
+  <br>
 
-    <header>
+  <div style="padding-left: 30px;">
 
-        <div class="logo">
-            PO
-        </div>
+    <div class="filter-term">기간</div>
+    <br>
+    <div class="filter-box">
+      <input class="input1" type="checkbox" />하 루
 
-        <form action="{% url 'search' %}" method="post">
-            {% csrf_token %}
-            <input type="search" name="q" value="{{q}}" placeholder="원하는 정책을 검색하세요!"
-                style=" width:250px; height:40px; font-size: 10px;" />
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <input class="input1" type="checkbox" />한 달
+
+      <input class="input1" type="checkbox" />일 년
+    </div>
+    <div class="filter-date">
+      <div class="date">직접입력</div>
+      <div class="startdate">시작일
+        <form>
+          <p><input class="input1" type="date" value="2020-09-22"></p>
+          <p><input class="box input1" type="submit" value="SEARCH"></p>
         </form>
-
-        <h>인기 검색어</h>
-
-        <button type="button" style="float: right; margin-left: 10px;">LOGIN</button>
-        <button type="button" style="float: right; margin-left: 10px;">REGISTER</button>
-
-        <hr noshade />
-
-    </header>
-
-
-    <!-- 커서 닿으면 색 바뀌기 수정 -->
-
-    <nav>
-
-        <ul>
-            <li><a href="#">정책 보기</a></li>
-            <li><a href="#">맞춤 정책</a></li>
-        </ul>
-
-
-    </nav>
-
-
-    <aside>
-        <div style="font-size: 30px; text-align: center;">정책 검색</div>
-        <br>
-
-        <div style="padding-left: 30px;">
-            <input type="checkbox" /> 코로나 19
-            <br>
-            <input type="checkbox" /> 보건
-            <br>
-            <input type="checkbox" /> 교육
-            <br><br><br>
-            <input type="submit" />
+      </div>
+    </div>
+    <br></br>
+    <div class="filter-term">카테고리
+    </div>
+    <br>
+    <div class="category">
+      <div class="category1">
+        <div class="education">
+          <a href="#">
+            <img src="{% static 'img/mortarboard.png' %}" width=63px; height=63px; alt="education">
+            <a>
+              <div class="categoryfont">교육</div>
         </div>
-
-    </aside>
-
-    <!-- 본문 카드 형식 (부트스트랩) -->
-    <section>
-
-
-
-        {% if not policies %}
-
-        <h1>검색 결과가 없습니다</h1>
-
-        {% else %}
-
-        {% for policy in policies.all %}
-
-        <div class="album py-5 bg-light">
-            <div class="container">
-                <div class="card-columns">
-                    {% for policy in policies %}
-                    <div class="card mb-4 shadow-sm">
-                        <!-- image -->
-                        {% if policy.image %}
-                        <img src="{{ policy.image.url }}" class="card-img-top" alt="Policy_Image">
-                        {% else %}
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                            xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
-                            focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                            <title>Dreamary</title>
-                            <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%"
-                                fill="#eceeef" dy=".3em">Profile</text>
-                        </svg>
-                        {% endif %}
-                        <div class="card-body">
-                            <h4 class="card-title">{{ policy.name }}</h4>
-                            <h6 class="card-text">{{ policy.address }}</h6>
-                            <hr>
-                            <div class="d-flex justify-content-between align-itema-center">
-                                <div class="btn-group">
-                                    <a href="{% url 'detail' policy.id %}"
-                                        class="btn btn-sm btn-outline-secondary">자세히
-                                        알아보기</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
+        <div class="welfare">
+          <a href="#">
+            <img src="{% static 'img/help.png' %}" width=63px; height=63px; alt="welfare">
+            <a>
+              <div class="categoryfont">복지</div>
         </div>
+      </div>
+      <div class="category2">
+        <div class="tax" style="text-align: center;">
+          <div class="image">
+            <a href="#">
+              <img src="{% static 'img/tax.png' %}" width=63px; height=63px; alt="tax">
+              <a>
+                <div class="categoryfont">세금</div>
+          </div>
+        </div>
+        <div class="labor">
+          <a href="#">
+            <img src="{% static 'img/labor.png' %}" width=63px; height=63px; alt="labor">
+            <a>
+              <div class="categoryfont">노동</div>
+        </div>
+      </div>
+      <div class="land">
+        <a href="#">
+          <img src="{% static 'img/land.png' %}" width=63px; height=63px; alt="land">
+          <a>
+            <div class="categoryfont">부동산</div>
+      </div>
+    </div>
+
+  </div>
+
+
+</aside>
+
+<!-- 본문 카드 형식 (부트스트랩) -->
+<div class="big-title clear">
+  WELFARE&EDUCATION
+</div>
+
+
+{% if not policies %}
+
+<h1>검색 결과가 없습니다</h1>
+
+{% else %}
+
+{% for policy in policies.all %}
+
+<div class="suitsuit">
+  <div class="card">
+
+    <div class="card-condition">
+      <!-- 카드 상태 -->
+      <div class="status-icon">NEW</div>
+      <!-- 더알아보기 버튼 -->
+      <div class="card-detail" style="float:right; margin-right:30px">
+        <a href="{% url 'detail' policy.id %}" class="btnbtn-primary"> 더 알아보기 </a>
+      </div>
+    </div>
+
+    <div class="main-picture" style="text-align: center;">
+      <img src="{{ policy.image.url }}" style='width:100%;height:100%' alt="Policy_Image">
+    </div>
+
+    <div class="card-body">
+      <h4 class="card-title">{{ policy.name }}</h4>
+      <h6 class="card-text" style="text-align: right;">{{ policy.part }}</h6>
+    </div>
+
+  </div>
+</div>
+
+{% endfor %}
+
+{% endif %}
 
 
 
-        {% endfor %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-        {% endif %}
-
-
-
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
-    </section>
-
-</body>
-
-</html>
+{% endblock %}
+<!-- view에는 제대로 footer가 아래에 안 있네요 8ㅁ8 -->

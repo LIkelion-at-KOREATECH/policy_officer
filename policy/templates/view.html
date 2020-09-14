@@ -231,6 +231,13 @@
       clear: left;
       clear: right;
     }
+
+    footer,
+    .push {
+      height: 60px;
+    }
+
+
   </style>
 </head>
 
@@ -313,83 +320,32 @@
   WELFARE&EDUCATION
 </div>
 
-<section class="clear">
-  <!-- 카드 일렬로 정리하는게 안됨 ㅜㅜ -->
-  <!-- 카드  -->
+{% for policy in policies %}
   <div class="suitsuit">
     <div class="card">
+
       <div class="card-condition">
         <!-- 카드 상태 -->
         <div class="status-icon">NEW</div>
         <!-- 더알아보기 버튼 -->
         <div class="card-detail" style="float:right; margin-right:30px">
-          <a href="https://blog.naver.com/sun014371/222084686876" class="btnbtn-primary"> 더알아보기 </a>
+          <a href="{% url 'detail' policy.id %}" class="btnbtn-primary"> 더 알아보기 </a>
         </div>
       </div>
 
       <div class="main-picture" style="text-align: center;">
-        <a href="https://blog.naver.com/sun014371/222084686876">
-          <img src="{% static 'img/edusupport.png' %}" width=320px; height=266px; alt="위의 이미지를 누르면 연결됩니다.">
-          <a>
+        <img src="{{ policy.image.url }}" style='width:100%;height:100%' alt="Policy_Image">
       </div>
-      <div class="card-body">
-        <h5 class="card-title">교육재난지원금 및 혜택</h5>
-        <p class="card-term">2020.09.10~</p>
 
+      <div class="card-body">
+        <h4 class="card-title">{{ policy.name }}</h4>
+        <h6 class="card-text" style="text-align: right;">{{ policy.part }}</h6>
       </div>
+
     </div>
   </div>
-  <div class="suitsuit">
-    <div class="card">
-      <div class="card-condition">
-        <!-- 카드 상태 -->
-        <div class="status-icon" style="color:rgb(59, 163, 251)">UPDATE</div>
-        <!-- 더알아보기 버튼 -->
-        <div class="card-detail" style="float:right; margin-right:30px">
-          <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=29392274&memberNo=1676241&vType=VERTICAL"
-            class="btnbtn-primary"> 더알아보기 </a>
-        </div>
-      </div>
-
-      <div class="main-picture" stle="text-align: center;">
-        <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=29392274&memberNo=1676241&vType=VERTICAL">
-          <img src="{% static 'img/view_education.png' %}" width=320px; height=266px; alt="위의 이미지를 누르면 연결됩니다.">
-          <a>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title"><a href="{% url 'blog_covid' %}">제2차 국가재난지원금</a></h5>
-        <p class="card-term">2020.09.10~</p>
-
-      </div>
-    </div>
-  </div>
-  <br>
-  <div class=suitsuit>
-    <div class="card">
-      <div class="card-condition">
-        <!-- 카드 상태 -->
-        <div class="status-icon"></div>
-        <!-- 더알아보기 버튼 -->
-        <div class="card-detail" style="float:right; margin-right:30px; margin-bottom: 3px;">
-          <a href="http://news.kmib.co.kr/article/view.asp?arcid=0015000612&code=61141111&cp=nv" class="btnbtn-primary">
-            더알아보기 </a>
-        </div>
-      </div>
-
-      <div class="main-picture">
-        <a href="http://news.kmib.co.kr/article/view.asp?arcid=0015000612&code=61141111&cp=nv">
-          <img src="{% static 'img/landmoney.png' %}" width=321px; height=266px; alt="위의 이미지를 누르면 연결됩니다.">
-          <a>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">부동산 정책</h5>
-        <p class="card-term">~2020.09.30</p>
-
-      </div>
-    </div>
-  </div>
-</section>
+  {% endfor %}
 
 {% endblock %}
-{% include "footer.html" %}
+
 <!-- view에는 제대로 footer가 아래에 안 있네요 8ㅁ8 -->
