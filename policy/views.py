@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Policies
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 def home(request):
@@ -22,7 +23,13 @@ def mypage(request):
     return render (request, 'mypage.html')
     
 def signup(request):
-    return render (request, 'signup.html')
+    regi_form = UserCreationForm()
+    if request.method == "POST":
+        filled_form = UserCreationForm(request.POST)
+        if filled_form.is_valid():
+            filled_form.save()
+            return redirect('login')
+    return render (request, 'signup.html', {'regi_form':regi_form})
 
 def blog_covid(request):
     return render (request, 'blog_covid.html')

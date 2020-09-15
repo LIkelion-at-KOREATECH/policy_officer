@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from policy import views
-
+from django.contrib.auth.views import LoginView
 from django.conf import settings
 from django.conf.urls.static import static
+
 
 urlpatterns = [
     
@@ -26,7 +27,7 @@ urlpatterns = [
     path('', views.home, name= "home"),
     path('suit/', views.suit, name= "suit"),
     path('view/', views.view, name= "view"),
-    path('login/', views.login, name= "login"),
+    path('login/', LoginView.as_view(), name= "login"),
     path('mind/', views.mind, name= "mind"),
     path('mypage/', views.mypage, name= "mypage"),
     path('signup/', views.signup, name= "signup"),
