@@ -138,7 +138,11 @@
       text-align: center;
       padding: 20px 20px 20px 20px;
     }
-    
+    .user{
+      color: white;
+      font-family: 'Jeju Gothic', sans-serif;
+      margin-top: 7px;
+    }
    
 
    
@@ -231,7 +235,13 @@
 
       <span class="box5"></span>
 
+      {% if user.is_authenticated %}
+      <span class="user">안녕하세요! {{user}}님!</span>
+      <a href="{% url 'logout' %}"><button class="button2">로그아웃</button></a>
+      
+      {% else %}
       <a href="{% url 'login' %}"><button class="button2">로그인</button></a>
+      {% endif %}
     </ul>
   </nav>
 

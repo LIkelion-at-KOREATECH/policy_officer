@@ -437,7 +437,6 @@
       </span>
     </form>
   </header>
-
   <nav>
     <ul class="nav justify-content-center navi">
       <span class="box5"></span>
@@ -450,8 +449,14 @@
       </li>
 
       <span class="box5"></span>
-
+    
+      {% if user.is_authenticated %}
+      안녕하세요! {{user}}님!
+      <a href="{% url 'logout' %}"><button class="button2">로그아웃</button></a>
+      
+      {% else %}
       <a href="{% url 'login' %}"><button class="button2">로그인</button></a>
+      {% endif %}
     </ul>
   </nav>
   <aside class="filter">

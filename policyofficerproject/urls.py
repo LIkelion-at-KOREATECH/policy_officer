@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from policy import views
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -40,6 +40,7 @@ urlpatterns = [
     path('filter/', views.filteraside, name="filteraside"),
     path('blog5/', views.blog_k, name="blog_k"),
     path('category/', views.category, name="category"),
+    path('logout/', LogoutView.as_view(), name="logout")
 
 
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
