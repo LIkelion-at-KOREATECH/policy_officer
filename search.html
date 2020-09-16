@@ -1,0 +1,290 @@
+{% extends "base.html" %}
+{% block contents %}
+{% load static %}
+
+
+
+<head>
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+
+  <style>
+    @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+
+    @font-face {
+      font-family: kyeonggi;
+      src: url({%static 'fonts/경기천년제목V_Bold.ttf' %});
+    }
+
+    @font-face {
+      font-family: kbiz;
+      src: url({%static 'fonts/kbiz.ttf' %});
+    }
+
+    body,
+    aside,
+    section,
+    ul,
+    ol,
+    h2,
+    h3,
+    h4,
+    h5,
+    form,
+    p,
+    b,
+    em {
+      margin: 0;
+      padding: 0;
+      font-family: kbiz;
+    }
+
+    .logo {
+      display: inline-block;
+      border: 1px solid skyblue;
+      width: 100px;
+      height: 80px;
+      line-height: 80px;
+      font-size: 50px;
+      text-align: center;
+    }
+
+    div {
+      float: left;
+      font-family: kbiz;
+    }
+
+    aside {
+      float: left;
+      width: 15em;
+      height: 500px;
+      margin: 30px 10px 30px 10px;
+      background-color: grey;
+    }
+
+    /* 필터부분 */
+    .filter {
+      background-color: white;
+      box-sizing: border-box;
+      border-radius: 20px 20px 20px 20px;
+      box-shadow: 1px 3px 6px rgba(0, 0, 0, .25);
+      border: solid rgba(241, 223, 223, .100) 1px;
+      width: 334px;
+      height: 961px;
+    }
+
+    /* 필터글자 */
+    .filter-title {
+      float: none;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 22px;
+    }
+
+    .filter-term {
+
+      float: none;
+      display: block;
+      border-bottom: 2px solid rgb(220, 211, 211);
+      text-decoration: none;
+      margin-right: 30px;
+      color: rgb(112, 112, 112);
+      font-size: 18px;
+    }
+
+    .date {
+      float: none;
+    }
+
+    .input1 {
+      float: none;
+      text-align: center;
+    }
+
+    .filter-date {
+      float: none;
+      display: inline-flex;
+      box-sizing: border-box;
+      border-radius: 10px;
+      box-shadow: 1px 3px 6px rgba(0, 0, 0, .25);
+      border: solid rgba(255, 255, 255, .100) 1px;
+
+    }
+
+    .category {
+      text-align: center;
+    }
+
+    .category1,
+    .category2 {
+
+      float: none;
+      display: block;
+      margin: 0px auto;
+    }
+
+    .education,
+    .welfare,
+    .labor,
+    .tax,
+    .land {
+      box-sizing: border-box;
+      border-radius: 10px;
+      box-shadow: 1px 3px 6px rgba(0, 0, 0, .25);
+      border: solid rgba(255, 255, 255, .100) 1px;
+      padding: 15px 20px 0px 20px;
+      margin: 10px;
+    }
+
+
+
+    .categoryfont {
+      float: none;
+      text-align: center;
+      font-size: 18px;
+      color: rgb(112, 112, 112);
+
+    }
+
+    /* 카드 css */
+
+    /* 카드 크기 및 설정 */
+    .big-title {
+      float: none;
+      display: block;
+      margin: 20px 200px 0px 380px;
+      border-bottom: 4px solid rgb(255, 177, 60);
+      font-size: 22px;
+      font-family: kyeonggi;
+    }
+
+    .card {
+      width: 322px;
+      height: 380px;
+      box-sizing: border-box;
+      border-radius: 20px 20px 20px 20px;
+      box-shadow: 1px 3px 6px rgba(0, 0, 0, .25);
+      border: solid rgba(255, 255, 255, .100) 1px;
+
+    }
+
+    /* 더알아보기 */
+    .btnbtn-primary {
+      width: 69px;
+      height: 19px;
+      box-sizing: border-box;
+      border: rgb(59, 169, 251);
+      background-color: rgb(59, 169, 251);
+      border-radius: 10px;
+      color: white;
+      font-size: 10px;
+      padding: 3px 5px 3px 5px;
+    }
+
+    /* new or updated 카드 왼쪽 위 */
+    .status-icon {
+      margin-left: 20px;
+      float: left;
+      color: red;
+      font-size: 18px;
+    }
+
+    .card-body {
+      float: none;
+    }
+
+    .card-title {
+
+      display: block;
+      text-align: center;
+      font-size: 18px;
+
+    }
+
+    .card-term {
+      float: right;
+      vertical-align: bottom;
+      font-size: 13px;
+    }
+
+    .main-picture {
+
+      height: 266px;
+
+    }
+
+
+    /* 카드 css 끝 */
+
+    .suitsuit {
+      width: 320px;
+      margin: 30px 14px 0px 17px;
+      display: inline-block;
+    }
+
+    .clear {
+      clear: both;
+      clear: left;
+      clear: right;
+    }
+  </style>
+</head>
+
+
+<!-- 본문 카드 형식 (부트스트랩) -->
+<div class="big-title clear">
+  WELFARE&EDUCATION
+</div>
+
+
+{% if not policies %}
+
+<h1 style="margin: 20px;">검색 결과가 없습니다.</h1>
+
+{% else %}
+
+{% for policy in policies.all %}
+
+<div class="suitsuit">
+  <div class="card">
+
+    <div class="card-condition">
+      <!-- 카드 상태 -->
+      <div class="status-icon">NEW</div>
+      <!-- 더알아보기 버튼 -->
+      <div class="card-detail" style="float:right; margin-right:30px">
+        <a href="{% url 'detail' policy.id %}" class="btnbtn-primary"> 더 알아보기 </a>
+      </div>
+    </div>
+
+    <div class="main-picture" style="text-align: center;">
+      <img src="{{ policy.image.url }}" style='width:100%;height:100%' alt="Policy_Image">
+    </div>
+
+    <div class="card-body">
+      <h4 class="card-title">{{ policy.name }}</h4>
+      <h6 class="card-text" style="text-align: right;">{{ policy.part }}</h6>
+    </div>
+
+  </div>
+</div>
+
+{% endfor %}
+
+{% endif %}
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+{% endblock %}
+<!-- view에는 제대로 footer가 아래에 안 있네요 8ㅁ8 -->

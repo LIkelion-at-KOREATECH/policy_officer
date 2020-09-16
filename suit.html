@@ -1,0 +1,369 @@
+{% extends "base.html" %}
+{% block contents %}
+{% load static %}
+
+
+
+<head>
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+
+
+  <style>
+    @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+
+    @font-face {
+      font-family: kyeonggi;
+      src: url({%static 'fonts/경기천년제목V_Bold.ttf' %});
+    }
+
+    @font-face {
+      font-family: kbiz;
+      src: url({%static 'fonts/kbiz.ttf' %});
+    }
+
+    body,
+    aside,
+    section,
+    ul,
+    ol,
+    h2,
+    h3,
+    h4,
+    h5,
+    form,
+    p,
+    b,
+    em {
+      margin: 0;
+      padding: 0;
+      font-family: kbiz;
+    }
+
+    .logo {
+      display: inline-block;
+      border: 1px solid skyblue;
+      width: 100px;
+      height: 80px;
+      line-height: 80px;
+      font-size: 50px;
+      text-align: center;
+    }
+
+
+
+    /* 카드 css */
+
+    /* 카드 크기 및 설정 */
+    .big-title {
+      float: none;
+      display: block;
+      margin: 20px 200px 0px 380px;
+      border-bottom: 4px solid rgb(255, 177, 60);
+      font-size: 22px;
+      font-family: kyeonggi;
+    }
+
+    .card {
+      width: 322px;
+      height: 380px;
+      box-sizing: border-box;
+      border-radius: 20px 20px 20px 20px;
+      box-shadow: 1px 3px 6px rgba(0, 0, 0, .25);
+      border: solid rgba(255, 255, 255, .100) 1px;
+
+    }
+
+    /* 더알아보기 */
+    .btnbtn-primary {
+      width: 69px;
+      height: 19px;
+      box-sizing: border-box;
+      border: rgb(59, 169, 251);
+      background-color: rgb(59, 169, 251);
+      border-radius: 10px;
+      color: white;
+      font-size: 10px;
+      padding: 3px 5px 3px 5px;
+    }
+
+    /* new or updated 카드 왼쪽 위 */
+    .status-icon {
+      margin-left: 20px;
+      float: left;
+      color: red;
+      font-size: 18px;
+    }
+
+    .card-body {
+      float: none;
+    }
+
+    .card-title {
+
+      display: block;
+      text-align: center;
+      font-size: 18px;
+
+    }
+
+    .card-term {
+      float: right;
+      vertical-align: bottom;
+      font-size: 13px;
+    }
+
+    .main-picture {
+
+      height: 266px;
+
+    }
+
+
+    /* 카드 css 끝 */
+
+    .suitsuit {
+      width: 320px;
+      margin: 30px 14px 0px 17px;
+      display: inline-block;
+    }
+
+    .clear {
+      clear: both;
+      clear: left;
+      clear: right;
+    }
+
+    div,
+    form,
+    input {
+      float: left;
+      font-family: kbiz;
+    }
+
+    aside {
+      float: left;
+      width: 15em;
+      height: 500px;
+      margin: 30px 10px 30px 10px;
+      background-color: grey;
+    }
+
+    .male {
+      background-color: white;
+      border: solid rgba(241, 223, 223, .100) 1px;
+      box-shadow: 1px 3px 6px rgba(0, 0, 0, .25);
+      padding: 20px, 7px, 7px, 6px;
+      border-radius: 20px 0px 0px 20px;
+      font-family: kbiz;
+      color: rgb(112, 112, 112);
+    }
+
+    .female {
+      background-color: white;
+      border: solid rgba(241, 223, 223, .100) 1px;
+      box-shadow: 1px 3px 6px rgba(0, 0, 0, .25);
+      padding: 10px, 7px, 7px, 6px;
+      border-radius: 0px 20px 20px 0px;
+      font-family: kbiz;
+      color: rgb(112, 112, 112);
+    }
+
+    /* 필터부분 */
+    .filter {
+      background-color: white;
+      box-sizing: border-box;
+      border-radius: 20px 20px 20px 20px;
+      box-shadow: 1px 3px 6px rgba(0, 0, 0, .25);
+      border: solid rgba(241, 223, 223, .100) 1px;
+      width: 334px;
+      height: 961px;
+      color: rgb(112, 112, 112);
+    }
+
+    /* 필터글자 */
+    .filter-title {
+      float: none;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 22px;
+      color: rgb(38, 153, 251);
+    }
+
+    .filter-term {
+
+      float: none;
+      display: block;
+      border-bottom: 2px solid rgb(220, 211, 211);
+      text-decoration: none;
+      margin-right: 30px;
+      color: rgb(112, 112, 112);
+      font-size: 18px;
+    }
+
+    .date {
+      float: none;
+      width: 75px;
+      height: 27px;
+
+
+      color: white;
+      background-color: rgb(38, 153, 251);
+      box-sizing: border-box;
+      border-radius: 5px;
+      box-shadow: none;
+      border: 1px solid rgb(38, 153, 251);
+      margin-right: 13px;
+    }
+
+    .filter-box {
+      float: none;
+      margin-bottom: 10px;
+    }
+
+    .input1 {
+      float: inherit;
+      text-align: center;
+      width: 75px;
+      height: 27px;
+      color: white;
+      background-color: rgb(38, 153, 251);
+      box-sizing: border-box;
+      border-radius: 5px;
+      box-shadow: none;
+      border: 1px solid rgb(38, 153, 251);
+      margin-left: 10px;
+      margin-right: 13px;
+      font-size: 16px;
+    }
+
+    .enddatee {
+      margin-left: 100px;
+    }
+
+    form {
+      font-size: 14px;
+    }
+
+    /* 날짜필터 */
+    #start_year,
+    #start_month,
+    #end_year,
+    #end_month {
+      border: white;
+      font-size: 14px;
+
+    }
+
+    .filter-date {
+      float: none;
+      display: inline-flex;
+      box-sizing: border-box;
+      border-radius: 10px;
+      height: 115px;
+      width: 294px;
+      border: solid rgba(245, 232, 232) 2px;
+      margin-right: 30px;
+      padding: 10px;
+
+    }
+
+    .category {
+      text-align: center;
+    }
+
+    .category1,
+    .category2 {
+
+      float: none;
+      display: block;
+      margin: 0px auto;
+    }
+
+    .education,
+    .welfare,
+    .labor,
+    .tax,
+    .land {
+      box-sizing: border-box;
+      border-radius: 10px;
+      box-shadow: 1px 3px 6px rgba(0, 0, 0, .25);
+      border: solid rgba(255, 255, 255, .100) 1px;
+      padding: 15px 20px 0px 20px;
+      margin: 10px;
+    }
+
+
+
+    .categoryfont {
+      float: none;
+      text-align: center;
+      font-size: 18px;
+      color: rgb(112, 112, 112);
+
+    }
+  </style>
+</head>
+
+<!-- 본문 카드 형식 (부트스트랩) -->
+<div class="big-title clear">
+  WELFARE&EDUCATION
+</div>
+
+<div class="suitsuit">
+  <div class="card">
+
+    <div class="card-condition">
+      <!-- 카드 상태 -->
+      <div class="status-icon">NEW</div>
+      <!-- 더알아보기 버튼 -->
+      <div class="card-detail" style="float:right; margin-right:30px">
+        <a href="{% url 'blog_gugic' %}" class="btnbtn-primary"> 더 알아보기 </a>
+      </div>
+    </div>
+
+    <div class="main-picture" style="text-align: center;">
+      <img src="{% static 'img/jobseeking.png' %}" style='width:100%;height:100%' alt="Policy_Image">
+    </div>
+
+    <div class="card-body">
+      <h4 class="card-title">청년구직활동지원금</h4>
+      <h6 class="card-text" style="text-align: right;">고용노동부</h6>
+    </div>
+
+  </div>
+</div>
+
+<div class="suitsuit">
+  <div class="card">
+
+    <div class="card-condition">
+      <!-- 카드 상태 -->
+      <div class="status-icon">NEW</div>
+      <!-- 더알아보기 버튼 -->
+      <div class="card-detail" style="float:right; margin-right:30px">
+        <a href="{% url 'blog_education' %}" class="btnbtn-primary"> 더 알아보기 </a>
+      </div>
+    </div>
+
+    <div class="main-picture" style="text-align: center;">
+      <img src="{% static 'img/education_3.png' %}" style='width:100%;height:100%' alt="Policy_Image">
+    </div>
+
+    <div class="card-body">
+      <h4 class="card-title">지역인재 장학금</h4>
+      <h6 class="card-text" style="text-align: right;">한국장학재단</h6>
+    </div>
+
+  </div>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br>
+{% endblock %}
+<!-- view에는 제대로 footer가 아래에 안 있네요 8ㅁ8 -->
