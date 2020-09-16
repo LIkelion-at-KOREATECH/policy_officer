@@ -1,6 +1,6 @@
+{% extends "base.html" %}
+{% block contents %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="ko">
 
 <head>
 
@@ -294,12 +294,15 @@
 
 		/* 헤더랑 네비 css*/
 	</style>
+</head>
 
 
-	<title>PolicyOfficer - 정책 보기</title>
 
 
 
+
+
+<<<<<<< HEAD
 	<body>
 		<!-- CSS only -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
@@ -457,3 +460,98 @@
 </body>
 
 </html>
+=======
+<body>
+	<!-- CSS only -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+	<!-- JS, Popper.js, and jQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+
+		</script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+
+		</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+
+		</script>
+
+
+	<!--블로그-->
+	<aside class="blog">
+		<div class="blog-title">코로나19 경제대책</div>
+		<br>
+		<div class="blog-part">부서명</div>
+
+		<div style="padding-left: 30px;">
+			<div class="filter-term"></div>
+			<br>
+			<div class="blog-image"><img src="{% static 'img/covid.png' %}" alt="covid">
+			</div>
+
+
+			<div style="padding-right: 30px;">
+
+				2020년 코로나19의 전 지구적 확산으로 세계경제는 대공황 이후 최악의 경기 침체와 마이너스 성장에 직면했다. 우리나라도 1월 20일 첫 환자 발생 이후 수출 급감과 제조업·서비스업
+				위기 그리고 소비위축에 따른 중소상공인 자영업 위기와 고용충격 등 경제의 전분야가 최악의 위기를 맞았다. 문재인 대통령이 “경제전시상황”에 비유한 위기에 적극적·선제적으로 대처하기 위해
+				정부는 비상체제로 전환, 대통령이 주재하는 비상경제회의를 3월 처음 개최한데 이어 4월부터 경제 부총리 중심의 비상경제 중앙대책본부 회의를 가동, 범정부적 역량을 결집해 비상경제
+				대응체계를 강화하고 전례 없는 조치들을 신속 과감하게 추진하고 있다.
+				대통령주재 1차 비상경제회의(3.19)에서 중소기업 소상공인 도산위기를 막기 위해 50조 규모의 ‘민생금융안정패키지’를 내놓은 것을 시작으로, 정부는 5월까지 5차례 비상경제회의를 통해
+				총 250조원을 투입하는 특단의 결정을 내렸다. 또 6월 1일 제6차 비상경제회의에서는 35.3조 원의 3차 추경과 그 속에 반영된 5조원 규모의 하반기 한국판 뉴딜 단기 사업안도
+				마련됐다. 이를 반영한 세 차례의 추경예산이 국회를 통과했다. 9월10일 제8차 비상경제회의에서는 7.8조 규모의 4차 추경안을 확정했다.
+
+				<br><br>
+
+				<p style="text-align: center; font-size: x-large;">청년구직활동지원금 신청 자격 알아보기</p>
+
+				<table>
+					<tr>
+						<td>생년월일</td>
+						<td> <input type="date" name="date of birth" id="date" /> </td>
+					</tr>
+					<tr>
+						<td>최종 학력</td>
+						<td> <input type="checkbox" id="userCollege" value="college"> 재학
+							<input type="checkbox" id="graduationBox" onClick="checkAble1(this.form)"> 졸업 OR 중퇴
+							<input type="date" id="userGraduatedDate">
+						</td>
+					</tr>
+					<tr>
+						<td>취업 유무</td>
+						<td> <input type="checkbox" id="currentJob" value="job"> Yes
+							<input type="checkbox" id="currentNoJob" value="noJob"> No
+						</td>
+					</tr>
+					<tr>
+						<td>기준 중위 소득</td>
+						<td> <input type="text" id="userIncome" value="income">
+							<input type="button" value="나의 중위 소득 확인하기">
+						</td>
+					</tr>
+
+				</table>
+
+				<!-- 생년월일, 취업유무, 최종학력 체크박스에 관한 submit -->
+				<input type="submit" name="submit" id="submit" value="확인" onClick="_setAge();"
+					style="float: right; margin-right: 20px; margin-top: 20px;" />
+
+
+			</div><br>
+			<a href="http://www.korea.kr/special/policyCurationView.do?newsId=148872965#" target=blank>자세히보기</a>
+
+		</div>
+
+		</div>
+
+
+	</aside>
+
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br>
+	{% endblock %}
+>>>>>>> parent of 7e6e1a6... Revert "템플릿 상속 css 정리"

@@ -1,6 +1,6 @@
+{% extends "base.html" %}
+{% block contents %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="ko">
 
 <head>
 
@@ -60,7 +60,7 @@
 		aside {
 			float: left;
 			width: 15em;
-			height: 500px;
+			height: 1500px;
 			margin: 30px 10px 30px 10px;
 			background-color: grey;
 		}
@@ -295,12 +295,13 @@
 
 		/* 헤더랑 네비 css*/
 	</style>
+</head>
 
 
-	<title>PolicyOfficer - 정책 보기</title>
+	
 
 
-
+<<<<<<< HEAD
 	<body>
 		<!-- CSS only -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
@@ -491,3 +492,139 @@
 </body>
 
 </html>
+=======
+<body>
+	<!-- CSS only -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+	<!-- JS, Popper.js, and jQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+
+	</script>
+
+
+
+
+
+
+
+
+
+	<!--블로그-->
+	<aside class="blog">
+		<div class="blog-title">지역인재 장학금</div>
+		<br>
+		<div class="blog-part">한국장학재단</div>
+
+		<div style="padding-left: 30px;">
+			<div class="filter-term"></div>
+			<br>
+			<div class="blog-image"><img src="{% static 'img/jobseeking.png' %}" alt="covid">
+			</div>
+
+
+			<div style="padding-right: 30px;">
+				<div class="blog-mtitle">
+					1. 청년구직활동 지원금이란?</div>
+				<a>- 월 50만원씩 6개월 지원 ! 하는 청년을 위한 취업정책</a><br><br>
+
+				<div class="blog-mtitle">2. 대상</div>
+				연령 : 만 18세~ 34세
+				<br>거주지 및 소득 : 기준중위소득 120% 이하(4인 가구 기준 5,699,009원, '20년) 최근 3개월 평균 건강보험료 부과액(부과액 확인이 어려운 경우 납입액)이 가구원 수에
+				따른 기준중위소득의 건강보험료 부과액이하여야 함)
+				<br>학력 : 신청 시점 기준 고등학교 이하·대학교·대학원 졸업·중퇴 후 2년이 경과 되지 않은 미취업자
+				<br>* 고등학교·대학교·대학원 재학생 참여 불가(졸업학점을 모두 이수한 졸업 유예‧수료‧예정자는 참여가능)
+				<br><br>
+				<div class="blog-mtitle">3. 신청절차</div>
+
+				① 신청 및 접수
+				<br>- 온라인 청년센터(youthcenter.go.kr)에서 매월 25일까지 신청 (웹, 모바일 모두 가능)
+				<br>- 구직활동 계획서 작성
+				<br>- 오프라인 예비교육(고용센터)장소는 신청자가 선택 가능
+				<br>- 신청 시 필요 서류 등 세부정보 추후 안내 예정
+				<br><br>
+				② 자격요건 심사 및 대상 선정
+				<br>- 신청서 제출일 기준으로 참여자격 판단
+				<br>- 참여 도중 취업 또는 창업하는 경우, 구직활동 지원금 지원 중단
+				<br>- 자격요건 충족여부 확인 후 우선순위 반영하여 선정
+				<br>- 구직활동 인정범위: 취업관련 스터디 등 기타 개인적인 취업준비 활동을 폭넓게 인정
+				<br><br>
+				③ 예비교육: 매월 9일~19일 중 센터별로 자율적으로 운영
+				<br>- 온라인(제도소개, 구직준비도검사), 오프라인(제도소개, 고용서비스 안내)
+				<br>- 소규모 스터디형 프로그램, 일대일 맞춤형 상담 프로그램, 심리상담 제공
+				<br>- 지원금의 목적, 카드 사용방법, 구직활동 보고서 작성요령, 고용센터 프로그램 등 안내
+				<br>- 불출석 시 탈락 처리
+
+				④ 카드신청 및 발급
+				- 예비교육 신청 시 카드와 카드발급방법 선택
+				- 예비교육 후 카드 발급
+
+				⑤ 구직활동 보고서 제출 및 지원금 지급
+				- 매월 20일 24:00까지 구직활동보고서 작성 및 제출
+				- 고용센터 내용 확인 및 지원금 지급 결정 후 카드사가 다음 월 1일 포인트 지급
+				- [클린카드] 지급
+				<br><br>
+				<a href="youthcenter.go.kr/youngPlcyUnif/youngPlcyUnifDtl.do?bizId=2721" target=blank>자세히보기</a>
+
+				<p style="text-align: center; font-size: x-large;">청년구직활동지원금 신청 자격 알아보기</p>
+
+				<table>
+					<tr>
+						<td>생년월일</td>
+						<td> <input type="date" name="date of birth" id="date" /> </td>
+					</tr>
+					<tr>
+						<td>최종 학력</td>
+						<td> <input type="checkbox" id="userCollege" value="college"> 재학
+							<input type="checkbox" id="graduationBox" onClick="checkAble1(this.form)"> 졸업 OR 중퇴
+							<input type="date" id="userGraduatedDate">
+						</td>
+					</tr>
+					<tr>
+						<td>취업 유무</td>
+						<td> <input type="checkbox" id="currentJob" value="job"> Yes
+							<input type="checkbox" id="currentNoJob" value="noJob"> No
+						</td>
+					</tr>
+					<tr>
+						<td>기준 중위 소득</td>
+						<td> <input type="text" id="userIncome">
+							<input type="button" value="나의 중위 소득 확인하기">
+						</td>
+					</tr>
+
+				</table>
+
+				<!-- 생년월일, 취업유무, 최종학력 체크박스에 관한 submit -->
+				<input type="submit" name="submit" id="submit" value="확인" onClick="_setAge();"
+					style="float: right; margin-right: 20px; margin-top: 20px;" />
+
+
+			</div><br>
+
+		</div>
+
+		</div>
+
+
+	</aside>
+
+	</div>
+
+	
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br>
+{% endblock %}
+>>>>>>> parent of 7e6e1a6... Revert "템플릿 상속 css 정리"

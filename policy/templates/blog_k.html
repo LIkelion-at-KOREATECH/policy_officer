@@ -1,6 +1,6 @@
+{% extends "base.html" %}
+{% block contents %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="ko">
 
 <head>
 
@@ -265,7 +265,8 @@
 			width: 320px;
 			margin: 30px 14px 0px 17px;
 		}
-	.blog {
+
+		.blog {
 			background-color: white;
 			box-sizing: border-box;
 			border-radius: 20px 20px 20px 20px;
@@ -273,19 +274,21 @@
 			border: solid rgba(241, 223, 223, .100) 1px;
 			width: 650px;
 			height: auto;
-      		margin-top: 30px;
+			margin-top: 30px;
 			margin-left: 20px;
 			padding-bottom: 20px;
 		}
-  	.blog-title {
+
+		.blog-title {
 			float: none;
 			text-align: center;
 			margin-top: 30px;
 			font-size: 22px;
 		}
-     .blog-mtitle {
+
+		.blog-mtitle {
 			float: none;
-			
+
 			margin-bottom: 10px;
 			font-size: 18px;
 
@@ -297,190 +300,91 @@
 	</style>
 
 
-	<title>PolicyOfficer - 정책 보기</title>
 
 
 
-	<body>
-		<!-- CSS only -->
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-		 crossorigin="anonymous">
 
-		<!-- JS, Popper.js, and jQuery -->
-		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-		 crossorigin="anonymous">
+<body>
+	<!-- CSS only -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-		</script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-		 crossorigin="anonymous">
+	<!-- JS, Popper.js, and jQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
 
 		</script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-		 crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+
+		</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
 
 		</script>
 
-		<header class="header">
-			<a href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" width=50px alt="logoimg" class="left"></a>
-    <h1 class="display-4"><span class="orange">Policy</span> <span class="blue">Officer</span></h1>
-    <form action="{% url 'search' %}" method="post">
-      {% csrf_token %}
-      <span class="right search">
-        <input class="input2" type="search" name="q" value="{{q}}" placeholder="검색어 입력">
-        <button class="button1">검색</button>
-      </span>
-    </form>
-  </header>
-  <nav>
-    <ul class="nav justify-content-center navi">
-      <span class="box5"></span>
-      <li class="nav-item">
-        <a class="nav-link white" href="{% url 'view' %}">정책보기</a>
-      </li>
-      <span class="box5"></span>
-      <li class="nav-item">
-        <a class="nav-link white" href="{% url 'suit' %}">맞춤정책</a>
-      </li>
-
-      <span class="box5"></span>
-
-      <a href="{% url 'login' %}"><button class="button2">로그인</button></a>
-    </ul>
-  </nav>
 
 
 
-  <!-- 커서 닿으면 색 바뀌기 수정 -->
 
 
-  <aside class="filter">
-    <div class="filter-title">FILTER</div>
-    <br>
 
-    <div style="padding-left: 30px;">
+	<!--블로그-->
+	<aside class="blog">
+		<div class="blog-title">K-STARTUP 1인 창조기업 지원센터</div>
+		<br>
 
-      <div class="filter-term">기간</div>
-      <br>
-      <div class="filter-box">
-        <input class="input1" type="checkbox" />하 루
+		<div style="padding-left: 30px; padding-right:10px;">
 
-        <input class="input1" type="checkbox" />한 달
+			<div class="filter-term"></div>
+			<br>
+			<div style="padding-right: 30px;"></div>
+			<div class="blog-mtitle">
+				1. 지원대상</div>
+			「1인 창조기업 육성에 관한 법률 」 제 2조에 해당하는 1인 창조기업 또는 예비 1인 창조기업(예비창업자)<br>
+			* 예비 1인 창조기업의 경우 입주 후 3개월 이내 사업자등록을 해야합니다.<br>
+			패밀리카드를 소지한 1인 창조기업<br>
+			* 패밀리카드는 지원센터 입출입 카드로 K-Startup 지원센터 정회원 승인 후 지원센터에 방문하여 발급·수령
+			<br><br>
+			<div class="blog-mtitle">2. 지원내용</div>
+			-사무공간<br>
+			사무(작업)공간 및 회의실, 상담실, 휴게실 등 지원센터 공간 지원<br>
 
-        <input class="input1" type="checkbox" />일 년
-      </div>
-      <div class="filter-date">
-        <div class="date">직접입력</div>
-        <div class="startdate">시작일
-          <form>
-            <p><input class="input1" type="date" value="2020-09-22"></p>
-            <p><input class="box input1" type="submit" value="SEARCH"></p>
-          </form>
-        </div>
-      </div>
-      <br></br>
-      <div class="filter-term">카테고리
-      </div>
-      <br>
-      <div class="category">
-        <div class="category1">
-          <div class="education">
-            <a href="#">
-              <img src="{% static 'img/mortarboard.png' %}" width=63px; height=63px; alt="education">
-              <a>
-                <div class="categoryfont">교육</div>
-          </div>
-          <div class="welfare">
-            <a href="#">
-              <img src="{% static 'img/help.png' %}" width=63px; height=63px; alt="welfare">
-              <a>
-                <div class="categoryfont">복지</div>
-          </div>
-        </div>
-        <div class="category2">
-          <div class="tax" style="text-align: center;">
-            <div class="image">
-              <a href="#">
-                <img src="{% static 'img/tax.png' %}" width=63px; height=63px; alt="tax">
-                <a>
-                  <div class="categoryfont">소득</div>
-            </div>
-          </div>
-          <div class="labor">
-            <a href="#">
-              <img src="{% static 'img/labor.png' %}" width=63px; height=63px; alt="labor">
-              <a>
-                <div class="categoryfont">취업</div>
-          </div>
-        </div>
-        <div class="land">
-          <a href="#">
-            <img src="{% static 'img/land.png' %}" width=63px; height=63px; alt="land">
-            <a>
-              <div class="categoryfont">부동산</div>
-        </div>
-      </div>
+			- 경영지원<br>
+			세무·회계·법률·마케팅·창업 등 전문가 상담, 교육, 정보제공 등 경영지원(무료)<br>
 
-    </div>
+			- 사업화지원<br>
+			1인 창조기업과 외부기관(기업)간 프로젝트 연계 및 수행 기회 제공, 지식서비스 거래 및 사업화 지원<br>
+
+			- 시설이용<br>
+			팩스, 프린터, pc 등 사무용 집기 이용 지원
+
+			<br><br>
+			<div class="blog-mtitle">3. 1인 창조기업이란?</div>
+			* 정회원 온라인 신청완료 후 반드시 신청한 센터에 연락하여 정회원 승인요청, 승인여부 최종확인 필요<br>
+
+			1인 창조기업이란 창의성과 전문성을 갖춘 1인이 상시근로자 없이 사업을 영위하는 자.<br>
+			(단, 부동산업 등 대통령령으로 정하는 업종을 영위하는 자는 제외)<br>
+			공동창업자, 공동대표, 공동사업자 등 공동으로 사업을 영위하는 자가 5인 미만인 경우 인정<br>
+			1인 창조기업이 규모 확대의 이유로 1인 창조기업에 해당되지 아니하게 된 경우에도 3년간은 1인 창조기업으로 인정<br>
+			* 상시근로자를 사용하지 않고 있는 기간이 연속으로 1개월 이상이었던 자<br>
+			* 1인 창조기업 외의 기업과 합병하거나 창업일이 속하는 달로부터 12개월 이전에 중소기업에 해당하지 아니하게 된 경우는 제외<br>
+
+			<br><br>
+			<a href="https://www.k-startup.go.kr/homepage/businessManage/businessManageFunction.do?sid=128&itemSeq=1092"
+				target=blank>자세히보기</a>
+		</div>
 
 
-  </aside>
-<!--블로그-->
-<aside class="blog">
-    <div class="blog-title">K-STARTUP 1인 창조기업 지원센터</div>
-    <br>
+		</div>
 
-    <div style="padding-left: 30px; padding-right:10px;">
-
-      <div class="filter-term"></div>
-      <br><div style="padding-right: 30px;"></div>
-	  <div class="blog-mtitle">
-		1. 지원대상</div>
-		「1인 창조기업 육성에 관한 법률 」 제 2조에 해당하는 1인 창조기업 또는 예비 1인 창조기업(예비창업자)<br>
-* 예비 1인 창조기업의 경우 입주 후 3개월 이내 사업자등록을 해야합니다.<br>
-패밀리카드를 소지한 1인 창조기업<br>
-* 패밀리카드는 지원센터 입출입 카드로 K-Startup 지원센터 정회원 승인 후 지원센터에 방문하여 발급·수령
-		<br><br>
-		<div class="blog-mtitle">2. 지원내용</div>
-		-사무공간<br>
-		사무(작업)공간 및 회의실, 상담실, 휴게실 등 지원센터 공간 지원<br>
-
-		- 경영지원<br>
-		세무·회계·법률·마케팅·창업 등 전문가 상담, 교육, 정보제공 등 경영지원(무료)<br>
-		
-		- 사업화지원<br>
-		1인 창조기업과 외부기관(기업)간 프로젝트 연계 및 수행 기회 제공, 지식서비스 거래 및 사업화 지원<br>
-		
-		- 시설이용<br>
-		팩스, 프린터, pc 등 사무용 집기 이용 지원
-		
-		<br><br>
-		<div class="blog-mtitle">3. 1인 창조기업이란?</div>
-		* 정회원 온라인 신청완료 후 반드시 신청한 센터에 연락하여 정회원 승인요청, 승인여부 최종확인 필요<br>
-
-1인 창조기업이란 창의성과 전문성을 갖춘 1인이 상시근로자 없이 사업을 영위하는 자.<br>
- (단, 부동산업 등 대통령령으로 정하는 업종을 영위하는 자는 제외)<br>
-공동창업자, 공동대표, 공동사업자 등 공동으로 사업을 영위하는 자가 5인 미만인 경우 인정<br>
-1인 창조기업이 규모 확대의 이유로 1인 창조기업에 해당되지 아니하게 된 경우에도 3년간은 1인 창조기업으로 인정<br>
-* 상시근로자를 사용하지 않고 있는 기간이 연속으로 1개월 이상이었던 자<br>
-* 1인 창조기업 외의 기업과 합병하거나 창업일이 속하는 달로부터 12개월 이전에 중소기업에 해당하지 아니하게 된 경우는 제외<br>
-		
-		<br><br>
-		<a href="https://www.k-startup.go.kr/homepage/businessManage/businessManageFunction.do?sid=128&itemSeq=1092" target=blank>자세히보기</a>
-</div>
-
-      
-      </div>
-
-    </div>
+		</div>
 
 
-  </aside>
-
-</div>
+	</aside>
 
 
-  </section>
-
-</body>
-
-</html>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br>
+	{% endblock %}
