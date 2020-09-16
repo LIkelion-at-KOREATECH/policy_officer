@@ -45,9 +45,9 @@ def filteraside(request):
     return render (request, 'filteraside.html')
     
 def search(request):
-    policies = Policies.objects.all().order_by('-id')
+    policies = Policies.objects.all()
 
-    q = request.POST.get() 
+    q = request.POST.get('q') 
 
     if q:
         policies = policies.filter(name__icontains=q)
