@@ -1,7 +1,7 @@
 from django.db import models
 #chae
-from imagekit.models import ProcessedImageField
-from imagekit.processors import ResizeToFill
+#from imagekit.models import ProcessedImageField
+#from imagekit.processors import ResizeToFill
 #chae
 
 # CATEGORY_CHOICES = (
