@@ -47,10 +47,7 @@ def filteraside(request):
 def search(request):
     policies = Policies.objects.all().order_by('-id')
 
-
-
-
-    q = request.POST.get('q', "") 
+    q = request.POST.get() 
 
     if q:
         policies = policies.filter(name__icontains=q)
@@ -63,5 +60,30 @@ def detail(request, policy_id): # views.py의 pk 변수명과 urls.py의 변수�
     policy = get_object_or_404(Policies, pk = policy_id)
     return render(request, 'detail.html', {'policy' : policy})
 
+def category(request, category) :
+
+    categories = Policies.objects.all() 
+    category_text = request.POST.get()
+
+    # if category == education :
+    #     categories = Policies.objects.filter(category=category)
+    
+    # return render(request, 'category.html', {'categories':categories})
+
+    # categories = Policies.objects.all().order_by('-id')
+
+    # q = request.GET.get('q', "") 
+
+    if category_text:
+        categories = categories.objects.filter( category__icontains = category_text )
+        return render(request, 'category.html', {'categories' : categories, 'category_text':category_text})
+
+    # else:
+    #     return render(request, 'category.html')
+
+    # print(request.GET['제출'])
+    #
+
+# if category == request.GET['제출'] :
 
 
