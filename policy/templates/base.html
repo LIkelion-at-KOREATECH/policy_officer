@@ -317,7 +317,11 @@
             color: rgb(112, 112, 112);
 
         }
-
+        .user{
+      color: white;
+      font-family: 'Jeju Gothic', sans-serif;
+      margin-top: 7px;
+    }
    
   </style>
   <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
@@ -451,7 +455,7 @@
       <span class="box5"></span>
     
       {% if user.is_authenticated %}
-      안녕하세요! {{user}}님!
+      <span class="user">안녕하세요! {{user}}님!</span>
       <a href="{% url 'logout' %}"><button class="button2">로그아웃</button></a>
       
       {% else %}
