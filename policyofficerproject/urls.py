@@ -36,7 +36,7 @@ urlpatterns = [
     path('blog1/', views.blog_gugic, name= "blog_gugic"),
     path('blog2/', views.blog_education, name="blog_education"),
     path('filter/', views.filteraside, name="filteraside"),
-    path('category/', views.category, name="category"),
+    # path('category/', views.category, name="category"),
     path('logout/', LogoutView.as_view(), name="logout"),
 
 

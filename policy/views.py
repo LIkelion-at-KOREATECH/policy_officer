@@ -63,12 +63,12 @@ def detail(request, policy_id): # views.py의 pk 변수명과 urls.py의 변수�
     policy = get_object_or_404(Policies, pk = policy_id)
     return render(request, 'detail.html', {'policy' : policy})
 
-def category(request) :
+# def category(request) :
 
-    categories = Policies.objects.all() 
-    category_text = request.POST.get()
+#     categories = Policies.objects.all() 
+#     category_text = request.POST.get()
 
-    if category_text:
-        categories = categories.objects.filter( category__icontains = category_text )
-        return render(request, 'category.html', {'categories' : categories, 'category_text':category_text})
+#     if category_text:
+#         categories = categories.objects.filter( category__icontains = category_text )
+#         return render(request, 'category.html', {'categories' : categories, 'category_text':category_text})
 
