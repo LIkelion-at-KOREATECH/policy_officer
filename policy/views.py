@@ -31,16 +31,14 @@ def signup(request):
             return redirect('login')
     return render (request, 'signup.html', {'regi_form':regi_form})
 
-def blog_covid(request):
-    return render (request, 'blog_covid.html')
+
 def blog_gugic(request):
     return render (request, 'blog_gugic.html')
+
 def blog_education(request):
     return render (request, 'blog_education.html')
-def blog_tom(request):
-    return render (request, 'blog_tom.html')
-def blog_k(request):
-    return render (request, 'blog_k.html')
+
+
 def filteraside(request):
     return render (request, 'filteraside.html')
     
@@ -60,30 +58,12 @@ def detail(request, policy_id): # views.py의 pk 변수명과 urls.py의 변수�
     policy = get_object_or_404(Policies, pk = policy_id)
     return render(request, 'detail.html', {'policy' : policy})
 
-def category(request, category) :
+def category(request) :
 
     categories = Policies.objects.all() 
     category_text = request.POST.get()
 
-    # if category == education :
-    #     categories = Policies.objects.filter(category=category)
-    
-    # return render(request, 'category.html', {'categories':categories})
-
-    # categories = Policies.objects.all().order_by('-id')
-
-    # q = request.GET.get('q', "") 
-
     if category_text:
         categories = categories.objects.filter( category__icontains = category_text )
         return render(request, 'category.html', {'categories' : categories, 'category_text':category_text})
-
-    # else:
-    #     return render(request, 'category.html')
-
-    # print(request.GET['제출'])
-    #
-
-# if category == request.GET['제출'] :
-
 
