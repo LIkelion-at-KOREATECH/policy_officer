@@ -1,0 +1,1 @@
+web: gunicorn policyofficerproject.wsgi --log-file -
