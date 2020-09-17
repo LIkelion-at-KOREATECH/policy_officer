@@ -6,23 +6,17 @@ from django.contrib.auth.forms import UserCreationForm
 def home(request):
     return render (request, 'home.html')
     
-<<<<<<< HEAD
 def suit(request): 
     policies = Policies.objects.all() 
     return render(request, 'suit.html', {'policies' : policies})  
 def view(request):
      policies = Policies.objects.all() 
      return render (request, 'view.html', {'policies' : policies})
-=======
-def view(request):
-    return render (request, 'view.html')
-
 
 def suit(request): 
     policies = Policies.objects.all() 
     return render(request, 'suit.html', {'policies' : policies})
     
->>>>>>> mergeTest
 
 def login(request):
     return render (request, 'login.html')    
